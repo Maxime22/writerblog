@@ -3,7 +3,7 @@ namespace Entity;
 
 use \MiniFram\Entity;
 
-class News extends Entity
+class Chapter extends Entity
 {
     protected $author,
     $title,

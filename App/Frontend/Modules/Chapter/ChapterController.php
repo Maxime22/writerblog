@@ -1,10 +1,10 @@
 <?php
-namespace App\Frontend\Modules\Chapters;
+namespace App\Frontend\Modules\Chapter;
 
 use \MiniFram\BackController;
 use \MiniFram\HTTPRequest;
 
-class ChaptersController extends BackController
+class ChapterController extends BackController
 {
     public function executeIndex(HTTPRequest $request)
     {
