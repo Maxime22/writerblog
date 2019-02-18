@@ -7,9 +7,9 @@ abstract class ChapterManager extends Manager
 {
   /**
    * Méthode retournant une liste de news demandée
-   * @param $debut int La première news à sélectionner
-   * @param $limite int Le nombre de news à sélectionner
+   * @param $start int is the first chapter to select
+   * @param $limit int is the number of chapters to select
    * @return array La liste des news. Chaque entrée est une instance de News.
    */
-  abstract public function getList($debut = -1, $limite = -1);
+  abstract public function getList($start = -1, $limit = -1);
 }
