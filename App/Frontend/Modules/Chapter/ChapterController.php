@@ -30,6 +30,6 @@ class ChapterController extends BackController
         }
 
         // We add the variable $listeChapter to the view (which will be read in a list (ArrayAccess))
-        $this->page->addVar('listeChapters', $listChapters);
+        $this->page->addVar('listChapters', $listChapters);
     }
 }
