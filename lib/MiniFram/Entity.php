@@ -3,13 +3,13 @@ namespace MiniFram;
 
 abstract class Entity implements \ArrayAccess
 {
-    protected $erreurs = [],
+    protected $errors = [],
         $id;
 
-    public function __construct(array $donnees = [])
+    public function __construct(array $datas = [])
     {
-        if (!empty($donnees)) {
-            $this->hydrate($donnees);
+        if (!empty($datas)) {
+            $this->hydrate($datas);
         }
     }
 
@@ -18,9 +18,9 @@ abstract class Entity implements \ArrayAccess
         return empty($this->id);
     }
 
-    public function erreurs()
+    public function errors()
     {
-        return $this->erreurs;
+        return $this->errors;
     }
 
     public function id()
@@ -33,9 +33,9 @@ abstract class Entity implements \ArrayAccess
         $this->id = (int) $id;
     }
 
-    public function hydrate(array $donnees)
+    public function hydrate(array $datas)
     {
-        foreach ($donnees as $attribut => $valeur) {
+        foreach ($datas as $attribut => $valeur) {
             $methode = 'set' . ucfirst($attribut);
 
             if (is_callable([$this, $methode])) {
