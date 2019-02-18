@@ -15,7 +15,7 @@ class ChapterController extends BackController
         $this->page->addVar('title', 'Liste des ' . $nbChapters . ' chapitres');
 
         // We take the manager of Chapters
-        $manager = $this->managers->getManagerOf('Chapters');
+        $manager = $this->managers->getManagerOf('Chapter');
 
         // Call the number of chapters we want in the DB
         $listChapters = $manager->getList(0, $nbChapters);

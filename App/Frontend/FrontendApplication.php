@@ -7,8 +7,6 @@ class FrontendApplication extends Application{
 
     public function __construct()
     {
-        var_dump("coucou");
-        die;
         parent::__construct();
         $this->name = "Frontend";
     }
