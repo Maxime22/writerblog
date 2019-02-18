@@ -5,11 +5,11 @@ use \MiniFram\Entity;
 
 class Chapter extends Entity
 {
-    protected $author,
-    $title,
-    $content,
-    $addDate,
-        $modifDate;
+    protected $author;
+    protected $title;
+    protected $content;
+    protected $addDate;
+    protected $modifDate;
 
     const AUTHOR_NOTVALID = 1;
     const TITLE_INVALID = 2;

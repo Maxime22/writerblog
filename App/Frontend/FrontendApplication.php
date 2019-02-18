@@ -3,8 +3,7 @@ namespace App\Frontend;
 
 use \MiniFram\Application;
 
-class FrontendApplication extends Application
-{
+class FrontendApplication extends Application{
 
     public function __construct()
     {
