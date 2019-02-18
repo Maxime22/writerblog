@@ -1,7 +1,7 @@
 <?php
 namespace MiniFram;
 
-class HTTPResponse
+class HTTPResponse extends ApplicationComponent
 {
     protected $page;
 
