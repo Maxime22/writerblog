@@ -12,7 +12,6 @@ header {
 
 .navbar {
     padding: 0px 70px 0px 70px;
-    /* background-color: rgba(0, 19, 53, 1) !important; */
     background-color: #1C1C1C !important;
     margin-right: auto;
     margin-left: auto;
@@ -29,13 +28,11 @@ nav ul li {
 }
 
 nav ul li a {
-    /* border-top: 4px solid rgba(0, 19, 53, 0);
-    border-bottom: 4px solid rgba(0, 19, 53, 0); */
     font-size: 35px;
 }
 
 nav ul li a:hover {
-    color: #92c7fd !important;
+    color: #4c96d7 !important;
 }
 
 #imgLogo {
@@ -60,11 +57,13 @@ section {
 
 #sectionContentFront {
     margin-top: 100px;
+    margin-bottom:30px;
 }
 
 #sectionContentFront h3 {
     font-size: 40px;
-    padding-top: 20px;
+    padding: 30px 0 30px 0;
+    margin-bottom: 0;
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -105,7 +104,6 @@ section {
 /* FOOTER */
 
 footer {
-    /* background-color: #313131; */
     background-color: #1C1C1C;
     padding-top: 44px;
     padding-bottom: 44px;
@@ -125,7 +123,6 @@ footer a {
 
 footer a:hover {
     text-decoration-line: none;
-    /* color : #00a6d8; */
     color: #03b568;
 }
 
