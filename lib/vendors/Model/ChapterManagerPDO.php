@@ -39,7 +39,6 @@ class ChapterManagerPDO extends ChapterManager
         if ($chapter = $request->fetch()) {
             $chapter->setAddDate(new \DateTime($chapter->addDate()));
             $chapter->setModifDate(new \DateTime($chapter->modifDate()));
-
             return $chapter;
         }
 

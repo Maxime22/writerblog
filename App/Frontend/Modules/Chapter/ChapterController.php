@@ -12,7 +12,8 @@ class ChapterController extends BackController
         $nbOfStrings = $this->app->config()->get('nb_strings');
 
         // We add a definition for the title
-        $this->page->addVar('title', 'A ' . $nbChapters . ' chapitres');
+        // $this->page->addVar('title', 'A ' . $nbChapters . ' chapitres');
+        $this->page->addVar('title', "Billet simple pour l'Alaska");
 
         // We take the manager of Chapters
         $manager = $this->managers->getManagerOf('Chapter');
