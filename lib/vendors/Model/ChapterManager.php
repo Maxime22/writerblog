@@ -12,4 +12,11 @@ abstract class ChapterManager extends Manager
    * @return array La liste des news. Chaque entrée est une instance de News.
    */
   abstract public function getList($start = -1, $limit = -1);
+
+  /**
+   * Return a specific chapter
+   * @param $id int = ID of the chapter
+   * @return Chapter Return the Chapter
+   */
+  abstract public function getUnique($id);
 }

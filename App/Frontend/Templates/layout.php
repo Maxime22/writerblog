@@ -8,7 +8,7 @@
     <title>
       <?=isset($title) ? $title : 'Jean Forteroche'?>
     </title>
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png">
     <meta name="title" content="SMF Vélos : La réservation en un clic !">
     <meta name="description"
         content="Jean Forteroche présente son livre : 'Billet simple pour l'Alaska' sous formes de... billets. Ces différents billets

@@ -12,7 +12,7 @@ class ChapterController extends BackController
         $nbOfStrings = $this->app->config()->get('nb_strings');
 
         // We add a definition for the title
-        $this->page->addVar('title', 'Liste des ' . $nbChapters . ' chapitres');
+        $this->page->addVar('title', 'A ' . $nbChapters . ' chapitres');
 
         // We take the manager of Chapters
         $manager = $this->managers->getManagerOf('Chapter');
@@ -32,4 +32,17 @@ class ChapterController extends BackController
         // We add the variable $listeChapter to the view (which will be read in a list (ArrayAccess))
         $this->page->addVar('listChapters', $listChapters);
     }
+
+    public function executeShow(HTTPRequest $request)
+    {
+        $chapter = $this->managers->getManagerOf('Chapter')->getUnique($request->getData('id'));
+
+        if (empty($chapter)) {
+            $this->app->httpResponse()->redirect404();
+        }
+
+        $this->page->addVar('title', $chapter->title());
+        $this->page->addVar('chapter', $chapter);
+    }
+
 }

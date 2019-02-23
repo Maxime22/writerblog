@@ -2,4 +2,5 @@
 <routes>
     <!-- <route url="/chapter-(.+)-([0-9]+)\.html" module="Chapter" action="index"></route>  -->
     <route url="/" module="Chapter" action="index" ></route>
+    <route url = "chapter-([0-9+)\.html" module="Chapter" action="show" vars="id">
 </routes>
