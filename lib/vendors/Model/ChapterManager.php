@@ -19,4 +19,10 @@ abstract class ChapterManager extends Manager
    * @return Chapter Return the Chapter
    */
   abstract public function getUnique($id);
+
+  /**
+   * Returns the total number of chapters
+   * @return int
+   */
+  abstract public function count();
 }
