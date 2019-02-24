@@ -1,6 +1,8 @@
 <?php
 namespace Model;
 
+use \Entity\Chapter;
+
 class ChapterManagerPDO extends ChapterManager
 {
     public function getList($start = -1, $limit = -1)
@@ -49,5 +51,16 @@ class ChapterManagerPDO extends ChapterManager
     public function count()
     {
         return $this->dao->query('SELECT COUNT(*) FROM Chapter')->fetchColumn();
+    }
+
+    protected function add(Chapter $chapter)
+    {
+        $request = $this->dao->prepare('INSERT INTO chapter SET author = :author, title = :title, content = :content, addDate = NOW(), modifDate = NOW()');
+
+        $request->bindValue(':title', $chapter->title());
+        $request->bindValue(':author', $chapter->author());
+        $request->bindValue(':content', $chapter->content());
+
+        $request->execute();
     }
 }

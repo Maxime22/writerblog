@@ -2,6 +2,7 @@
 namespace Model;
 
 use \MiniFram\Manager;
+use \Entity\Chapter;
 
 abstract class ChapterManager extends Manager
 {
@@ -25,4 +26,30 @@ abstract class ChapterManager extends Manager
    * @return int
    */
   abstract public function count();
+
+  /**
+   * Add a chapter
+   * @param $chapter Chapter to add
+   * @return void
+   */
+  abstract protected function add(Chapter $chapter);
+  
+  /**
+   * Save a chapter (add or update(modify))
+   * @param $chapter
+   * @see self::add()
+   * @see self::modify()
+   * @return void
+   */
+  public function save(Chapter $chapter)
+  {
+    if ($chapter->isValid())
+    {
+      $chapter->isNew() ? $this->add($chapter) : $this->modify($chapter);
+    }
+    else
+    {
+      throw new \RuntimeException('Le chapitre doit être validé pour être enregistré');
+    }
+  }
 }
