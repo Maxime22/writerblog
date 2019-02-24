@@ -6,7 +6,7 @@
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-      <?=isset($title) ? $title : 'Jean Forteroche'?>
+      <?=isset($title) ? $title : 'Administration'?>
     </title>
     <link rel="icon" href="/images/favicon.png">
     <meta name="title" content="Jean Forteroche : Billet simple pour l'Alaska">
@@ -41,10 +41,8 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Chapitres</a></li>
                         <?php if ($user->isAuthenticated()) {?>
-                        <li class="nav-item"><a href="/admin/">Espace Admin</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Déconnexion</a></li>
                         <?php }?>
                     </ul>
                 </div>
@@ -53,50 +51,9 @@
     </header>
 
     <section id="sectionContentFront" class="container-fluid">
-        <?php if ($user->hasFlash()) {echo '<p style="text-align: center;">', $user->getFlash(), '</p>';}?>
-        <?=$content?>
+        
     </section>
 
-
-    <footer class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div>
-                            <h3>Nous contacter :</h3>
-                        </div>
-                        <div class="line2"></div>
-                        <a href="#">Mentions Légales</a>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div>
-                            <h3>Nous suivre :</h3>
-                        </div>
-                        <div class="line2"></div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div>
-                            <h3>Administration :</h3>
-                        </div>
-                        <div class="line2"></div>
-                        <?php if ($user->isAuthenticated()) {?>
-                            <a href="#">Déconnexion</a>
-                        <?php } else {?>
-                            <a href="#">Connexion</a>
-                        <?php }?>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div>
-                            <h3>Retour à l'accueil :</h3>
-                        </div>
-                        <div class="line2"></div>
-                        <a href="/">
-                            <img src="/images/logoJF.png" width="100" height="100" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </footer>
 
     </div>
     <!-- Bootstrap -->
