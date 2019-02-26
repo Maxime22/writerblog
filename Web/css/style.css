@@ -101,6 +101,12 @@ section {
     font-size:60px;
 }
 
+/* ADMIN */
+
+.tableChapters{
+    margin:auto;
+}
+
 /* FOOTER */
 
 footer {

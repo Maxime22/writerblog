@@ -31,7 +31,7 @@
     <header class="container-fluid">
         <div class="row">
             <nav class="navbar fixed-top navbar-expand-sm">
-                <a class="navbar-brand" href="index.html"><img src="/images/logoJF.png" alt="Logo JF"
+                <a class="navbar-brand" href="/"><img src="/images/logoJF.png" alt="Logo JF"
                         id="imgLogo" /></a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -42,7 +42,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                     <ul class="navbar-nav ml-auto">
                         <?php if ($user->isAuthenticated()) {?>
-                            <li class="nav-item"><a class="nav-link" href="#">Déconnexion</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/deconnexion">Déconnexion</a></li>
                         <?php }?>
                     </ul>
                 </div>

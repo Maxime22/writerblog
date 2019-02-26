@@ -31,7 +31,7 @@
     <header class="container-fluid">
         <div class="row">
             <nav class="navbar fixed-top navbar-expand-sm">
-                <a class="navbar-brand" href="index.html"><img src="/images/logoJF.png" alt="Logo JF"
+                <a class="navbar-brand" href="/"><img src="/images/logoJF.png" alt="Logo JF"
                         id="imgLogo" /></a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -53,7 +53,6 @@
     </header>
 
     <section id="sectionContentFront" class="container-fluid">
-        <?php if ($user->hasFlash()) {echo '<p style="text-align: center;">', $user->getFlash(), '</p>';}?>
         <?=$content?>
     </section>
 
@@ -82,7 +81,7 @@
                         <?php if ($user->isAuthenticated()) {?>
                             <a href="#">Déconnexion</a>
                         <?php } else {?>
-                            <a href="#">Connexion</a>
+                            <a href="/admin/">Connexion</a>
                         <?php }?>
                     </div>
                     <div class="col-lg-3 col-md-6">

@@ -1,6 +1,6 @@
 <p style="text-align: center">Il y a actuellement <?=$numberOfChapters?> chapitres. En voici la liste :</p>
 
-<table>
+<table class="tableChapters">
   <tr><th>Auteur</th><th>Titre</th><th>Date d'ajout</th><th>Dernière modification</th><th>Action</th></tr>
 <?php
 foreach ($listChapters as $chapter) {

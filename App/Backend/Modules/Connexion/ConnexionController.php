@@ -22,4 +22,19 @@ class ConnexionController extends BackController
             }
         }
     }
+
+    public function executeDeconnexion(HTTPRequest $request){
+
+        $this->page->addVar('title', 'Deconnexion');
+
+        if ($this->app->user()->isAuthenticated() != false){
+            $this->app->user()->setAuthenticated(false);
+            $this->app->user()->setFlash('Vous avez été déconnecté de l\'espace utilisateur');
+            //session_destroy();
+            /* unset($_SESSION['name']);
+            unset($_SESSION['id']); */
+            $this->app->httpResponse()->redirect('/'); 
+        }
+
+    }
 }

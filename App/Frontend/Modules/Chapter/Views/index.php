@@ -8,6 +8,7 @@
     </figcaption>
 </figure>
 <div class="container">
+<?php if ($user->hasFlash()) {echo '<p style="text-align: center;">', $user->getFlash(), '</p>';}?>
 <h3>Bienvenue à toi cher lecteur...</h3>
 <p>
 Hoc inmaturo interitu ipse quoque sui pertaesus excessit e vita aetatis nono anno atque vicensimo cum quadriennio imperasset. natus apud Tuscos in Massa Veternensi, patre Constantio Constantini fratre imperatoris, matreque Galla sorore Rufini et Cerealis, quos trabeae consulares nobilitarunt et praefecturae.
