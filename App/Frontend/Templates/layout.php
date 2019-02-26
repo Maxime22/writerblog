@@ -41,8 +41,8 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Chapitres</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/chapters">Chapitres</a></li>
                         <?php if ($user->isAuthenticated()) {?>
                         <li class="nav-item"><a class="nav-link" href="/admin/">Espace Admin</a></li>
                         <?php }?>
@@ -60,20 +60,14 @@
     <footer class="container-fluid">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div>
                             <h3>Nous contacter :</h3>
                         </div>
                         <div class="line2"></div>
-                        <a href="#">Mentions Légales</a>
+                        <a href="/legalNotices">Mentions Légales</a>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div>
-                            <h3>Nous suivre :</h3>
-                        </div>
-                        <div class="line2"></div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div>
                             <h3>Administration :</h3>
                         </div>
@@ -84,7 +78,7 @@
                             <a href="/admin/">Connexion</a>
                         <?php }?>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div>
                             <h3>Retour à l'accueil :</h3>
                         </div>

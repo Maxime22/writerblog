@@ -28,3 +28,5 @@ foreach ($comments as $comment)
 ?>
 
 <p><a href="comment-<?= $chapter['id'] ?>">Ajouter un commentaire</a></p>
+
+<p><a href="/chapters">Revenir aux chapitres</a></p>
