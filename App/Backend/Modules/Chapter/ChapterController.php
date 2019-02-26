@@ -34,9 +34,9 @@ class ChapterController extends BackController
 
             $this->app->user()->setFlash($chapter->isNew() ? 'Le chapitre a bien été ajouté!' : 'Le chapitre a bien été modifié !');
         } else {
-            $this->page->addVar('erreurs', $chapter->errors());
+            $this->page->addVar('errors', $chapter->errors());
         }
 
-        $this->page->addVar('news', $chapter);
+        $this->page->addVar('chapter', $chapter);
     }
 }
