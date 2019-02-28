@@ -16,6 +16,15 @@ class ChapterController extends BackController
         $this->page->addVar('numberOfChapters', $manager->count());
     }
 
+    public function executeInsert(HTTPRequest $request)
+    {
+        if ($request->postExists('author')) {
+            $this->processForm($request);
+        }
+
+        $this->page->addVar('title', 'Ajout d\'un chapitre');
+    }
+
     public function processForm(HTTPRequest $request)
     {
         $chapter = new Chapter([

@@ -50,7 +50,7 @@ class ChapterManagerPDO extends ChapterManager
 
     public function count()
     {
-        return $this->dao->query('SELECT COUNT(*) FROM Chapter')->fetchColumn();
+        return $this->dao->query('SELECT COUNT(*) FROM chapter')->fetchColumn();
     }
 
     protected function add(Chapter $chapter)

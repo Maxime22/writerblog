@@ -12,3 +12,5 @@ foreach ($listChapters as $chapter) {
 }
 ?>
 </table>
+
+<div><a href="/admin/chapter-insert">Ajouter un chapitre</a></div>

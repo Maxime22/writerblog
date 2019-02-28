@@ -1,2 +1,2 @@
-<h2>Ajouter un chapitre</h2>
+<h2>Ajout d'un chapitre</h2>
 <?php require '_form.php';
