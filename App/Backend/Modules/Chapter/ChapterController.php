@@ -61,4 +61,13 @@ class ChapterController extends BackController
         $this->page->addVar('chapter', $chapter);
     }
 
+    public function executeDelete(HTTPRequest $request)
+    {
+        $this->managers->getManagerOf('Chapter')->delete($request->getData('id'));
+
+        $this->app->user()->setFlash('Le chapitre a bien été supprimé !');
+
+        $this->app->httpResponse()->redirect('.');
+    }
+
 }

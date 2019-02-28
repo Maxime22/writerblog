@@ -75,4 +75,9 @@ class ChapterManagerPDO extends ChapterManager
 
         $request->execute();
     }
+
+    public function delete($id)
+    {
+        $this->dao->exec('DELETE FROM chapter WHERE id = ' . (int) $id);
+    }
 }

@@ -59,4 +59,11 @@ abstract class ChapterManager extends Manager
       throw new \RuntimeException('Le chapitre doit être validé pour être enregistré');
     }
   }
+
+  /**
+   * Delete a chapter
+   * @param $id int Id of the chapter to delete
+   * @return void
+   */
+  abstract public function delete($id);
 }
