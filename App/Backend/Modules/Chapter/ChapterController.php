@@ -1,9 +1,9 @@
 <?php
 namespace App\Backend\Modules\Chapter;
 
+use \Entity\Chapter;
 use \MiniFram\BackController;
 use \MiniFram\HTTPRequest;
-use \Entity\Chapter;
 
 class ChapterController extends BackController
 {
@@ -24,6 +24,17 @@ class ChapterController extends BackController
         }
 
         $this->page->addVar('title', 'Ajout d\'un chapitre');
+    }
+
+    public function executeUpdate(HTTPRequest $request)
+    {
+        if ($request->postExists('author')) {
+            $this->processForm($request);
+        } else {
+            $this->page->addVar('chapter', $this->managers->getManagerOf('Chapter')->getUnique($request->getData('id')));
+        }
+
+        $this->page->addVar('title', 'Modification d\'un chapitre');
     }
 
     public function processForm(HTTPRequest $request)
@@ -49,4 +60,5 @@ class ChapterController extends BackController
 
         $this->page->addVar('chapter', $chapter);
     }
+
 }

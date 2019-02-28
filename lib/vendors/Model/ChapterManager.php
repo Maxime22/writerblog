@@ -33,6 +33,13 @@ abstract class ChapterManager extends Manager
    * @return void
    */
   abstract protected function add(Chapter $chapter);
+
+  /**
+   * Modify a chapter
+   * @param $chapter Chapter to modify
+   * @return void
+   */
+  abstract protected function modify(Chapter $chapter);
   
   /**
    * Save a chapter (add or update(modify))

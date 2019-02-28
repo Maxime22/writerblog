@@ -63,4 +63,16 @@ class ChapterManagerPDO extends ChapterManager
 
         $request->execute();
     }
+
+    protected function modify(Chapter $chapter)
+    {
+        $request = $this->dao->prepare('UPDATE chapter SET author = :author, title = :title, content = :content, modifDate = NOW() WHERE id = :id');
+
+        $request->bindValue(':title', $chapter->title());
+        $request->bindValue(':author', $chapter->author());
+        $request->bindValue(':content', $chapter->content());
+        $request->bindValue(':id', $chapter->id(), \PDO::PARAM_INT);
+
+        $request->execute();
+    }
 }
