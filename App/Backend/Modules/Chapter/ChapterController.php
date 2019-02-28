@@ -3,6 +3,7 @@ namespace App\Backend\Modules\Chapter;
 
 use \MiniFram\BackController;
 use \MiniFram\HTTPRequest;
+use \Entity\Chapter;
 
 class ChapterController extends BackController
 {
@@ -40,8 +41,8 @@ class ChapterController extends BackController
 
         if ($chapter->isValid()) {
             $this->managers->getManagerOf('Chapter')->save($chapter);
-
             $this->app->user()->setFlash($chapter->isNew() ? 'Le chapitre a bien été ajouté!' : 'Le chapitre a bien été modifié !');
+            $this->app->httpResponse()->redirect('/admin/'); // we redirect to the chapter page
         } else {
             $this->page->addVar('errors', $chapter->errors());
         }

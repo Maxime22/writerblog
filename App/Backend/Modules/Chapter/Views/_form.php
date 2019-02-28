@@ -1,8 +1,7 @@
 <form action="" method="post">
   <p>
     <?=isset($errors) && in_array(\Entity\Chapter::AUTHOR_NOTVALID, $errors) ? 'L\'auteur est invalide.<br />' : ''?>
-    <label>Auteur</label>
-    <input type="text" name="author" value="<?=isset($chapter) ? $chapter['author'] : ''?>" /><br />
+    <input type="text" hidden name="author" value="<?=isset($chapter) ? $chapter['author'] : 'Jean Forteroche'?>" /><br />
 
     <?=isset($errors) && in_array(\Entity\Chapter::TITLE_INVALID, $errors) ? 'Le titre est invalide.<br />' : ''?>
     <label>Titre</label><input type="text" name="title" value="<?=isset($chapter) ? $chapter['title'] : ''?>" /><br />
