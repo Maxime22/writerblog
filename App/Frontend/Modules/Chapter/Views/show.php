@@ -7,26 +7,27 @@
 <?php }?>
 
 <?php
-if (empty($comments))
-{
-?>
+if (empty($comments)) {
+    ?>
 <p>Aucun commentaire n'a encore été posté. Soyez le premier à en laisser un !</p>
 <?php
 }
 
-foreach ($comments as $comment)
-{
-?>
+foreach ($comments as $comment) {
+    ?>
   <fieldset>
+  <?php if ($user->isAuthenticated()) {?> -
+      <a href="admin/comment-update-<?=$comment['id']?>">Modifier</a> |
+    <?php }?>
     <legend>
-      Posté par <strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date']->format('d/m/Y à H\hi') ?>
+      Posté par <strong><?=htmlspecialchars($comment['author'])?></strong> le <?=$comment['date']->format('d/m/Y à H\hi')?>
     </legend>
-    <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
+    <p><?=nl2br(htmlspecialchars($comment['content']))?></p>
   </fieldset>
 <?php
 }
 ?>
 
-<p><a href="comment-<?= $chapter['id'] ?>">Ajouter un commentaire</a></p>
+<p><a href="comment-<?=$chapter['id']?>">Ajouter un commentaire</a></p>
 
 <p><a href="/chapters">Revenir aux chapitres</a></p>

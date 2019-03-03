@@ -2,6 +2,7 @@
 namespace App\Backend\Modules\Chapter;
 
 use \Entity\Chapter;
+use \Entity\Comment;
 use \MiniFram\BackController;
 use \MiniFram\HTTPRequest;
 
@@ -66,6 +67,42 @@ class ChapterController extends BackController
         $this->managers->getManagerOf('Chapter')->delete($request->getData('id'));
 
         $this->app->user()->setFlash('Le chapitre a bien été supprimé !');
+
+        $this->app->httpResponse()->redirect('.');
+    }
+
+    public function executeUpdateComment(HTTPRequest $request)
+    {
+        $this->page->addVar('title', 'Modification d\'un commentaire');
+
+        if ($request->postExists('author')) {
+            $comment = new Comment([
+                'id' => $request->getData('id'),
+                'author' => $request->postData('author'),
+                'content' => $request->postData('content'),
+            ]);
+
+            if ($comment->isValid()) {
+                $this->managers->getManagerOf('Comments')->save($comment);
+
+                $this->app->user()->setFlash('Le commentaire a bien été modifié !');
+
+                $this->app->httpResponse()->redirect('/chapter-' . $request->postData('chapter'));
+            } else {
+                $this->page->addVar('errors', $comment->errors());
+            }
+
+            $this->page->addVar('comment', $comment);
+        } else {
+            $this->page->addVar('comment', $this->managers->getManagerOf('Comments')->get($request->getData('id')));
+        }
+    }
+
+    public function executeDeleteComment(HTTPRequest $request)
+    {
+        $this->managers->getManagerOf('Comments')->delete($request->getData('id'));
+
+        $this->app->user()->setFlash('Le commentaire a bien été supprimé !');
 
         $this->app->httpResponse()->redirect('.');
     }

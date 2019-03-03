@@ -7,8 +7,8 @@ foreach ($listChapters as $chapter) {
     echo '<tr><td>', $chapter['author'], '</td><td>', $chapter['title'],
     '</td><td>le ', $chapter['addDate']->format('d/m/Y à H\hi'), '</td><td>',
     ($chapter['addDate'] == $chapter['modifDate'] ? '-' : 'le ' . $chapter['modifDate']->format('d/m/Y à H\hi')),
-    '</td><td><a href="chapter-update-',$chapter['id'],'"><i class="fas fa-pen"></i></a> <a href="chapter-delete-',
-    $chapter['id'], '"><i class="fas fa-times"></i></a></td></tr>', "\n";
+    '</td><td><a href="/chapter-'.$chapter['id'].'"><i class="fas fa-book-open"></i></a><a href="chapter-update-',$chapter['id'],'"><i class="fas fa-pen"></i></a> <a href="chapter-delete-',
+    $chapter['id'], '"><i class="far fa-trash-alt"></i></a></td></tr>', "\n";
 }
 ?>
 </table>

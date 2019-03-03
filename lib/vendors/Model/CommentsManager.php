@@ -33,4 +33,18 @@ abstract class CommentsManager extends Manager
      * @return array
      */
     abstract public function getListOf($chapter);
+
+    /**
+     * Modify a comment
+     * @param $comment Comment to be mmodified
+     * @return void
+     */
+    abstract protected function modify(Comment $comment);
+
+    /**
+     * Get a specify comment
+     * @param $id Id of the comment
+     * @return Comment
+     */
+    abstract public function get($id);
 }
