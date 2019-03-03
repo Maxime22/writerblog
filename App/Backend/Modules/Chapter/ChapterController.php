@@ -3,6 +3,7 @@ namespace App\Backend\Modules\Chapter;
 
 use \Entity\Chapter;
 use \Entity\Comment;
+use \FormBuilder\CommentFormBuilder;
 use \MiniFram\BackController;
 use \MiniFram\HTTPRequest;
 
@@ -20,46 +21,50 @@ class ChapterController extends BackController
 
     public function executeInsert(HTTPRequest $request)
     {
-        if ($request->postExists('author')) {
-            $this->processForm($request);
-        }
-
+        $this->processForm($request);
         $this->page->addVar('title', 'Ajout d\'un chapitre');
     }
 
     public function executeUpdate(HTTPRequest $request)
     {
-        if ($request->postExists('author')) {
-            $this->processForm($request);
-        } else {
-            $this->page->addVar('chapter', $this->managers->getManagerOf('Chapter')->getUnique($request->getData('id')));
-        }
-
+        $this->processForm($request);
         $this->page->addVar('title', 'Modification d\'un chapitre');
     }
 
     public function processForm(HTTPRequest $request)
     {
-        $chapter = new Chapter([
-            'author' => $request->postData('author'),
-            'title' => $request->postData('title'),
-            'content' => $request->postData('content'),
-        ]);
+        if ($request->method() == 'POST') {
+            $chapter = new Chapter([
+                'author' => $request->postData('author'),
+                'title' => $request->postData('title'),
+                'content' => $request->postData('content'),
+            ]);
 
-        // The id of the chapter is sent if we want to modify it
-        if ($request->postExists('id')) {
-            $chapter->setId($request->postData('id'));
-        }
-
-        if ($chapter->isValid()) {
-            $this->managers->getManagerOf('Chapter')->save($chapter);
-            $this->app->user()->setFlash($chapter->isNew() ? 'Le chapitre a bien été ajouté!' : 'Le chapitre a bien été modifié !');
-            $this->app->httpResponse()->redirect('/admin/'); // we redirect to the chapter page
+            if ($request->getExists('id')) {
+                $chapter->setId($request->getData('id'));
+            }
         } else {
-            $this->page->addVar('errors', $chapter->errors());
+            // Id of the chapter is sent if we want to modify it
+            if ($request->getExists('id')) {
+                $chapter = $this->managers->getManagerOf('Chapter')->getUnique($request->getData('id'));
+            } else // Otherwise we create a new chapter
+            {
+                $chapter = new Chapter;
+            }
         }
 
-        $this->page->addVar('chapter', $chapter);
+        $formBuilder = new NewsFormBuilder($chapter);
+        $formBuilder->build();
+
+        $form = $formBuilder->form();
+
+        if ($request->method() == 'POST' && $form->isValid()) {
+            $this->managers->getManagerOf('Chapter')->save($chapter);
+            $this->app->user()->setFlash($chapter->isNew() ? 'Le chapitre a bien été ajouté !' : 'Le chapitre a bien été modifié !');
+            $this->app->httpResponse()->redirect('/admin/');
+        }
+
+        $this->page->addVar('form', $form->createView());
     }
 
     public function executeDelete(HTTPRequest $request)
@@ -76,27 +81,28 @@ class ChapterController extends BackController
     {
         $this->page->addVar('title', 'Modification d\'un commentaire');
 
-        if ($request->postExists('author')) {
+        if ($request->method() == 'POST') {
             $comment = new Comment([
                 'id' => $request->getData('id'),
                 'author' => $request->postData('author'),
                 'content' => $request->postData('content'),
             ]);
-
-            if ($comment->isValid()) {
-                $this->managers->getManagerOf('Comments')->save($comment);
-
-                $this->app->user()->setFlash('Le commentaire a bien été modifié !');
-
-                $this->app->httpResponse()->redirect('/chapter-' . $request->postData('chapter'));
-            } else {
-                $this->page->addVar('errors', $comment->errors());
-            }
-
-            $this->page->addVar('comment', $comment);
         } else {
-            $this->page->addVar('comment', $this->managers->getManagerOf('Comments')->get($request->getData('id')));
+            $comment = $this->managers->getManagerOf('Comments')->get($request->getData('id'));
         }
+
+        $formBuilder = new CommentFormBuilder($comment);
+        $formBuilder->build();
+
+        $form = $formBuilder->form();
+
+        if ($request->method() == 'POST' && $form->isValid()) {
+            $this->managers->getManagerOf('Comments')->save($comment);
+            $this->app->user()->setFlash('Le commentaire a bien été modifié');
+            $this->app->httpResponse()->redirect('/chapter-' . $request->postData('chapter'));
+        }
+
+        $this->page->addVar('form', $form->createView());
     }
 
     public function executeDeleteComment(HTTPRequest $request)

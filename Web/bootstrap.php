@@ -20,6 +20,9 @@ $modelLoader->register();
 $entityLoader = new SplClassLoader('Entity', __DIR__.'/../lib/vendors');
 $entityLoader->register();
 
+$formBuilderLoader = new SplClassLoader('FormBuilder', __DIR__.'/../lib/vendors');
+$formBuilderLoader->register();
+
 // Finally we deduce the app we need and run this one dynamically calling the function run (example : the run function of FrontendApplication.php)
 $appClass = 'App\\'.$_GET['app'].'\\'.$_GET['app'].'Application';
 

@@ -42,26 +42,15 @@ class ChapterController extends BackController
             $comment = new Comment;
         }
 
-        $form = new Form($comment);
+        $formBuilder = new CommentFormBuilder($comment);
+        $formBuilder->build();
 
-        $form->add(new StringField([
-            'label' => 'Pseudo',
-            'name' => 'author',
-            'maxLength' => 50,
-            'validators' => [
-                new \MiniFram\MaxLengthValidator('L\'auteur spécifié est trop long (50 caractères maximum)', 50),
-                new \MiniFram\NotNullValidator('Merci de spécifier l\'auteur du commentaire'),
-            ],
-        ]))
-            ->add(new TextField([
-                'label' => 'Contenu',
-                'name' => 'content',
-                'rows' => 7,
-                'cols' => 50,
-            ]));
+        $form = $formBuilder->form();
 
-        if ($form->isValid()) {
-            // On enregistre le commentaire
+        if ($request->method() == 'POST' && $form->isValid()) {
+            $this->managers->getManagerOf('Comments')->save($comment);
+            $this->app->user()->setFlash('Le commentaire a bien été ajouté, merci !');
+            $this->app->httpResponse()->redirect('chapter-' . $request->getData('chapter'));
         }
 
         $this->page->addVar('comment', $comment);
