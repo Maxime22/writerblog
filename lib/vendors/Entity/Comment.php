@@ -10,7 +10,7 @@ class Comment extends Entity
     $content,
         $date;
 
-    const AUTHOR_NOTVALID = 1;
+    const AUTHOR_INVALID = 1;
     const CONTENT_INVALID = 2;
 
     public function isValid()
@@ -26,7 +26,7 @@ class Comment extends Entity
     public function setAuthor($author)
     {
         if (!is_string($author) || empty($author)) {
-            $this->erreurs[] = self::AUTHOR_NOTVALID;
+            $this->erreurs[] = self::AUTHOR_INVALID;
         }
 
         $this->author = $author;

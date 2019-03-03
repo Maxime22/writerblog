@@ -11,7 +11,7 @@ class CommentFormBuilder extends FormBuilder
 {
     public function build()
     {
-        $this->form->add(new StringField([
+        $this->form->add(new StringField([ // the data will be checked by the validator when we post a form
             'label' => 'Auteur',
             'name' => 'author',
             'maxLength' => 50,

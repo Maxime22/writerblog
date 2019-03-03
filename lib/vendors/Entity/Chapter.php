@@ -11,7 +11,7 @@ class Chapter extends Entity
     protected $addDate;
     protected $modifDate;
 
-    const AUTHOR_NOTVALID = 1;
+    const AUTHOR_INVALID = 1;
     const TITLE_INVALID = 2;
     const CONTENT_INVALID = 3;
 

@@ -90,6 +90,7 @@ class ChapterController extends BackController
                 'id' => $request->getData('id'),
                 'author' => $request->postData('author'),
                 'content' => $request->postData('content'),
+                'chapter' => $request->getData('chapter'),
             ]);
         } else {
             $comment = $this->managers->getManagerOf('Comments')->get($request->getData('id'));
@@ -105,7 +106,8 @@ class ChapterController extends BackController
         if ($formHandler->process()) // check POST, isValid and save() the entity
         {
             $this->app->user()->setFlash('Le commentaire a bien été modifié');
-            $this->app->httpResponse()->redirect('/chapter-' . $request->postData('chapter'));
+            $this->app->httpResponse()->redirect('/chapter-' . $request->getData('chapter'));
+            
         }
 
         $this->page->addVar('form', $form->createView());
