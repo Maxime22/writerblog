@@ -3,6 +3,8 @@ namespace MiniFram;
 
 abstract class Entity implements \ArrayAccess
 {
+    use Hydrator;
+
     protected $errors = [],
         $id;
 
@@ -31,17 +33,6 @@ abstract class Entity implements \ArrayAccess
     public function setId($id)
     {
         $this->id = (int) $id;
-    }
-
-    public function hydrate(array $datas)
-    {
-        foreach ($datas as $attribut => $valeur) {
-            $methode = 'set' . ucfirst($attribut);
-
-            if (is_callable([$this, $methode])) {
-                $this->$methode($valeur);
-            }
-        }
     }
 
     public function offsetGet($var)
