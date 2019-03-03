@@ -47,4 +47,18 @@ abstract class CommentsManager extends Manager
      * @return Comment
      */
     abstract public function get($id);
+
+    /**
+     * Delete a comment
+     * @param $id Id of the comment to delete
+     * @return void
+     */
+    abstract public function delete($id);
+
+    /**
+     * Delete all the news linked to a chapter
+     * @param $chapter Id of the chapter where all the comments need to be deleted
+     * @return void
+     */
+    abstract public function deleteFromChapter($chapter);
 }

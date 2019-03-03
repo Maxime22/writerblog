@@ -18,6 +18,7 @@ foreach ($comments as $comment) {
   <fieldset>
   <?php if ($user->isAuthenticated()) {?> -
       <a href="admin/comment-update-<?=$comment['id']?>">Modifier</a> |
+      <a href="admin/comment-delete-<?= $comment['id'] ?>">Supprimer</a>
     <?php }?>
     <legend>
       Posté par <strong><?=htmlspecialchars($comment['author'])?></strong> le <?=$comment['date']->format('d/m/Y à H\hi')?>

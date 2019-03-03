@@ -65,8 +65,9 @@ class ChapterController extends BackController
     public function executeDelete(HTTPRequest $request)
     {
         $this->managers->getManagerOf('Chapter')->delete($request->getData('id'));
+        $this->managers->getManagerOf('Comments')->deleteFromChapter($request->getData('id'));
 
-        $this->app->user()->setFlash('Le chapitre a bien été supprimé !');
+        $this->app->user()->setFlash('Le chapitre a bien été supprimé avec tous ses commentaires !');
 
         $this->app->httpResponse()->redirect('.');
     }
