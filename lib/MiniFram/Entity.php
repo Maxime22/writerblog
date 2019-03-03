@@ -3,7 +3,7 @@ namespace MiniFram;
 
 abstract class Entity implements \ArrayAccess
 {
-    use Hydrator;
+    use Hydrator; // has the extern method hydrate
 
     protected $errors = [],
         $id;
