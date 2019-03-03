@@ -48,6 +48,10 @@ class ChapterController extends BackController
             'label' => 'Pseudo',
             'name' => 'author',
             'maxLength' => 50,
+            'validators' => [
+                new \MiniFram\MaxLengthValidator('L\'auteur spécifié est trop long (50 caractères maximum)', 50),
+                new \MiniFram\NotNullValidator('Merci de spécifier l\'auteur du commentaire'),
+            ],
         ]))
             ->add(new TextField([
                 'label' => 'Contenu',
