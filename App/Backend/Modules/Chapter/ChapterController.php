@@ -3,8 +3,10 @@ namespace App\Backend\Modules\Chapter;
 
 use \Entity\Chapter;
 use \Entity\Comment;
+use \FormBuilder\ChapterFormBuilder;
 use \FormBuilder\CommentFormBuilder;
 use \MiniFram\BackController;
+use \MiniFram\FormHandler;
 use \MiniFram\HTTPRequest;
 
 class ChapterController extends BackController
@@ -53,13 +55,15 @@ class ChapterController extends BackController
             }
         }
 
-        $formBuilder = new NewsFormBuilder($chapter);
+        $formBuilder = new ChapterFormBuilder($chapter);
         $formBuilder->build();
 
         $form = $formBuilder->form();
 
-        if ($request->method() == 'POST' && $form->isValid()) {
-            $this->managers->getManagerOf('Chapter')->save($chapter);
+        $formHandler = new FormHandler($form, $this->managers->getManagerOf('Chapter'), $request);
+
+        if ($formHandler->process()) // check POST, isValid and save() the entity
+        {
             $this->app->user()->setFlash($chapter->isNew() ? 'Le chapitre a bien été ajouté !' : 'Le chapitre a bien été modifié !');
             $this->app->httpResponse()->redirect('/admin/');
         }
@@ -96,8 +100,10 @@ class ChapterController extends BackController
 
         $form = $formBuilder->form();
 
-        if ($request->method() == 'POST' && $form->isValid()) {
-            $this->managers->getManagerOf('Comments')->save($comment);
+        $formHandler = new FormHandler($form, $this->managers->getManagerOf('Comments'), $request);
+
+        if ($formHandler->process()) // check POST, isValid and save() the entity
+        {
             $this->app->user()->setFlash('Le commentaire a bien été modifié');
             $this->app->httpResponse()->redirect('/chapter-' . $request->postData('chapter'));
         }

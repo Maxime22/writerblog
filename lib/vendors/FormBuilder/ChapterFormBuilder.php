@@ -11,15 +11,16 @@ class ChapterFormBuilder extends FormBuilder
 {
     public function build()
     {
-        $this->form->add(new StringField([
-            'label' => 'Auteur',
-            'name' => 'author',
-            'maxLength' => 20,
-            'validators' => [
-                new MaxLengthValidator('L\'auteur spécifié est trop long (20 caractères maximum)', 20),
-                new NotNullValidator('Merci de spécifier l\'auteur de la news'),
-            ],
-        ]))
+        $this->form
+            /* ->add(new StringField([
+                'label' => 'Auteur',
+                'name' => 'author',
+                'maxLength' => 20,
+                'validators' => [
+                    new MaxLengthValidator('L\'auteur spécifié est trop long (20 caractères maximum)', 20),
+                    new NotNullValidator('Merci de spécifier l\'auteur de la news'),
+                ],
+            ])) */
             ->add(new StringField([
                 'label' => 'Titre',
                 'name' => 'title',
