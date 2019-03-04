@@ -28,10 +28,6 @@ class StringField extends Field
             $widget .= ' maxlength="' . $this->maxLength . '"';
         }
 
-        if (!empty($this->type)) {
-            $widget .= ' type="' . $this->type . '"';
-        }
-
         return $widget .= ' />';
     }
 

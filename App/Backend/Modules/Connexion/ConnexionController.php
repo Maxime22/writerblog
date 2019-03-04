@@ -10,30 +10,45 @@ class ConnexionController extends BackController
     {
         $this->page->addVar('title', 'Connexion');
 
-        if ($request->postExists('login')) {
-            $login = $request->postData('login');
-            $password = $request->postData('password');
+        /* $this->managers->getManagerOf('User')->add(); */ // if we want to add another user
 
-            if ($login == $this->app->config()->get('login') && $password == $this->app->config()->get('pass')) { // we check the login and the password with the config file
-                $this->app->user()->setAuthenticated(true);
-                $this->app->httpResponse()->redirect('.');
+        if ($request->postExists('login')) {
+
+            $manager = $this->managers->getManagerOf('User');
+            $result = $manager->getUser($request->postData('login'));
+
+            if (!$result) {
+                $this->app->user()->setFlash('Mauvais login ou password !');
             } else {
-                $this->app->user()->setFlash('Le pseudo ou le mot de passe est incorrect.');
+                $isPasswordCorrect = password_verify($request->postData('password'), $result['password']);
+
+                if ($isPasswordCorrect) {
+
+                    $this->app->user()->setAuthenticated(true);
+                    $this->app->user()->setAttribute('id', $result['id']); // registering the id and the login in session if we want to use it, we need to unset it at the deco
+                    $this->app->user()->setAttribute('login', $result['login']);
+
+                    $this->app->httpResponse()->redirect('.');
+
+                } else {
+                    $this->app->user()->setFlash('Mauvais login ou password !');
+                }
             }
         }
+
     }
 
-    public function executeDeconnexion(HTTPRequest $request){
+    public function executeDeconnexion(HTTPRequest $request)
+    {
 
         $this->page->addVar('title', 'Deconnexion');
 
-        if ($this->app->user()->isAuthenticated() != false){
+        if ($this->app->user()->isAuthenticated() != false) {
             $this->app->user()->setAuthenticated(false);
             $this->app->user()->setFlash('Vous avez été déconnecté de l\'espace utilisateur');
-            //session_destroy();
-            /* unset($_SESSION['name']);
-            unset($_SESSION['id']); */
-            $this->app->httpResponse()->redirect('/'); 
+            unset($_SESSION['login']);
+            unset($_SESSION['id']);
+            $this->app->httpResponse()->redirect('/');
         }
 
     }
