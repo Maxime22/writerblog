@@ -109,7 +109,7 @@ class ChapterController extends BackController
         if ($formHandler->process()) // check POST, isValid and save() the entity
         {
             $this->app->user()->setFlash('Le commentaire a bien été modifié');
-            $this->app->httpResponse()->redirect('/admin/');
+            $this->app->httpResponse()->redirect('/chapter-'.$request->getData('chapter'));
             
         }
 
