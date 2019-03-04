@@ -5,6 +5,7 @@ class TextField extends Field
 {
     protected $cols;
     protected $rows;
+    protected $id;
 
     public function buildWidget()
     {
@@ -15,6 +16,10 @@ class TextField extends Field
         }
 
         $widget .= '<label>' . $this->label . '</label><textarea name="' . $this->name . '"';
+
+        if (!empty($this->id)) {
+            $widget .= ' id="' . $this->id . '"';
+        }
 
         if (!empty($this->cols)) {
             $widget .= ' cols="' . $this->cols . '"';
@@ -49,5 +54,10 @@ class TextField extends Field
         if ($rows > 0) {
             $this->rows = $rows;
         }
+    }
+
+    public function setId($id)
+    {
+            $this->id = $id;
     }
 }

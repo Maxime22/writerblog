@@ -49,4 +49,4 @@ foreach ($listCommentsReported as $comment) {
     ?>
   <span>Aucun commentaire n'a été reporté pour le moment</span>
     <?php
-}
+}?>

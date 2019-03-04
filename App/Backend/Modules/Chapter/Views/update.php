@@ -6,3 +6,9 @@
     <input type="submit" value="Modifier" />
   </p>
 </form>
+
+<script>
+  tinymce.init({
+    selector: '#mytextarea'
+  });
+  </script>

@@ -34,6 +34,7 @@ class ChapterFormBuilder extends FormBuilder
             ]))
             ->add(new TextField([
                 'label' => 'Contenu',
+                'id' => 'mytextarea',
                 'name' => 'content',
                 'rows' => 8,
                 'cols' => 60,
