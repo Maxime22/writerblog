@@ -13,12 +13,15 @@ class ChapterController extends BackController
 {
     public function executeIndex(HTTPRequest $request)
     {
-        $this->page->addVar('title', 'Gestion des chapitres');
+        $this->page->addVar('title', 'Gestion globale');
 
         $manager = $this->managers->getManagerOf('Chapter');
+        // $managerComment = $this->managers->getManagerOf('Comment');
 
         $this->page->addVar('listChapters', $manager->getList());
         $this->page->addVar('numberOfChapters', $manager->count());
+
+        // $this->page->addVar('$listCommentsReported', $manager->getList());
     }
 
     public function executeInsert(HTTPRequest $request)

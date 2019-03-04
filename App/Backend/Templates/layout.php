@@ -42,6 +42,8 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                     <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/chapters">Chapitres</a></li>
                         <?php if ($user->isAuthenticated()) {?>
                             <li class="nav-item"><a class="nav-link" href="/admin/deconnexion">Déconnexion</a></li>
                         <?php }?>
