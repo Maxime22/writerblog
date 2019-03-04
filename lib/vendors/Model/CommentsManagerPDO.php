@@ -24,7 +24,7 @@ class CommentsManagerPDO extends CommentsManager
             throw new \InvalidArgumentException('L\'identifiant du chapitre passé doit être un nombre entier valide');
         }
 
-        $q = $this->dao->prepare('SELECT id, chapter, author, content, date FROM comments WHERE chapter = :chapter');
+        $q = $this->dao->prepare('SELECT id, chapter, author, content, date, reporting, reportingDate FROM comments WHERE chapter = :chapter');
         $q->bindValue(':chapter', $chapter, \PDO::PARAM_INT);
         $q->execute();
 
@@ -68,5 +68,33 @@ class CommentsManagerPDO extends CommentsManager
 
     public function deleteFromChapter($chapter){
         $this->dao->exec('DELETE FROM comments WHERE chapter = ' . (int) $chapter);
+    }
+
+    public function report($id){
+        $q = $this->dao->prepare('UPDATE comments SET reporting = 1, reportingDate = NOW() WHERE id = :id');
+        $q->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+        $q->execute();
+    }
+
+    public function unreport($id){
+        $q = $this->dao->prepare('UPDATE comments SET reporting = 0, reportingDate = null WHERE id = :id');
+        $q->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+        $q->execute();
+    }
+
+    public function getListOfReportedComments(){
+        $q = $this->dao->prepare('SELECT id, chapter, author, content, date, reporting, reportingDate FROM comments WHERE reporting = 1');
+        $q->execute();
+
+        $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
+
+        $commentsReported = $q->fetchAll();
+
+        foreach ($commentsReported as $comment) {
+            $comment->setDate(new \DateTime($comment->date()));
+            $comment->setReportingDate(new \DateTime($comment->reportingDate()));
+        }
+
+        return $commentsReported;
     }
 }

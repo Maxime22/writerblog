@@ -17,8 +17,13 @@ foreach ($comments as $comment) {
     ?>
   <fieldset>
   <?php if ($user->isAuthenticated()) {?> -
-      <a href="admin/comment-update-<?=$comment['id']?>-from-chapter-<?= $comment['chapter'] ?>">Modifier</a> |
-      <a href="admin/comment-delete-<?= $comment['id'] ?>">Supprimer</a>
+      <a href="admin/comment-update-<?=$comment['id']?>-from-chapter-<?=$comment['chapter']?>">Modifier</a> |
+      <a href="admin/comment-delete-<?=$comment['id']?>">Supprimer</a>
+    <?php }?>
+    <?php if ($comment->reporting() == 0 || $comment->reporting() == null) {?> -
+      <a href="admin/comment-report-<?=$comment['id']?>">Signaler</a>
+    <?php } else {?>
+    <span>Ce commentaire a été signalé</span>
     <?php }?>
     <legend>
       Posté par <strong><?=htmlspecialchars($comment['author'])?></strong> le <?=$comment['date']->format('d/m/Y à H\hi')?>

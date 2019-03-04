@@ -13,15 +13,15 @@ class ChapterController extends BackController
 {
     public function executeIndex(HTTPRequest $request)
     {
-        $this->page->addVar('title', 'Gestion globale');
+        $this->page->addVar('title', 'Espace admin');
 
         $manager = $this->managers->getManagerOf('Chapter');
-        // $managerComment = $this->managers->getManagerOf('Comment');
+        $managerComment = $this->managers->getManagerOf('Comments');
 
         $this->page->addVar('listChapters', $manager->getList());
         $this->page->addVar('numberOfChapters', $manager->count());
 
-        // $this->page->addVar('$listCommentsReported', $manager->getList());
+        $this->page->addVar('listCommentsReported', $managerComment->getListOfReportedComments());
     }
 
     public function executeInsert(HTTPRequest $request)
@@ -109,7 +109,7 @@ class ChapterController extends BackController
         if ($formHandler->process()) // check POST, isValid and save() the entity
         {
             $this->app->user()->setFlash('Le commentaire a bien été modifié');
-            $this->app->httpResponse()->redirect('/chapter-' . $request->getData('chapter'));
+            $this->app->httpResponse()->redirect('/admin/');
             
         }
 
@@ -121,6 +121,15 @@ class ChapterController extends BackController
         $this->managers->getManagerOf('Comments')->delete($request->getData('id'));
 
         $this->app->user()->setFlash('Le commentaire a bien été supprimé !');
+        
+        $_SERVER['HTTP_REFERER'] !== null ? $this->app->httpResponse()->redirect($_SERVER['HTTP_REFERER']) : $this->app->httpResponse()->redirect('.');
+    }
+
+    public function executeReportComment(HTTPRequest $request)
+    {
+        $this->managers->getManagerOf('Comments')->report($request->getData('id'));
+
+        $this->app->user()->setFlash('Le commentaire a bien été signalé !');
         
         $_SERVER['HTTP_REFERER'] !== null ? $this->app->httpResponse()->redirect($_SERVER['HTTP_REFERER']) : $this->app->httpResponse()->redirect('.');
     }

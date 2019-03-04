@@ -61,4 +61,25 @@ abstract class CommentsManager extends Manager
      * @return void
      */
     abstract public function deleteFromChapter($chapter);
+
+    /**
+     * Report a comment
+     * @param $id Id of the comment to report
+     * @return void
+     */
+    abstract public function report($id);
+
+    /**
+     * Remove the report of a comment
+     * @param $id Id of the comment where we need to remove the report
+     * @return void
+     */
+    abstract public function unreport($id);
+
+    /**
+     * Get the list of all the reported comments
+     * @return array
+     */
+    abstract public function getListOfReportedComments();
+
 }

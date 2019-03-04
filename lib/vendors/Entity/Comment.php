@@ -8,7 +8,9 @@ class Comment extends Entity
     protected $chapter,
     $author,
     $content,
-        $date;
+    $date,
+    $reporting,
+        $reportingDate;
 
     const AUTHOR_INVALID = 1;
     const CONTENT_INVALID = 2;
@@ -46,6 +48,17 @@ class Comment extends Entity
         $this->date = $date;
     }
 
+    public function setReporting($reporting) // not useful for now cause we update it just in the DB call
+
+    {
+        $this->reporting = (int) $reporting;
+    }
+
+    public function setReportingDate(\DateTime $reportingDate)
+    {
+        $this->reportingDate = $reportingDate;
+    }
+
     public function chapter()
     {
         return $this->chapter;
@@ -64,5 +77,15 @@ class Comment extends Entity
     public function date()
     {
         return $this->date;
+    }
+
+    public function reporting()
+    {
+        return $this->reporting;
+    }
+
+    public function reportingDate()
+    {
+        return $this->reportingDate;
     }
 }
