@@ -7,7 +7,7 @@
   <tr><th>Auteur</th><th>Titre</th><th>Date d'ajout</th><th>Dernière modification</th><th>Action</th></tr>
 <?php
 foreach ($listChapters as $chapter) {
-        echo '<tr><td>', $chapter['author'], '</td><td>', $chapter['title'],
+        echo '<tr><td>', htmlspecialchars($chapter['author']), '</td><td>', htmlspecialchars($chapter['title']),
         '</td><td>le ', $chapter['addDate']->format('d/m/Y à H\hi'), '</td><td>',
         ($chapter['addDate'] == $chapter['modifDate'] ? '-' : 'le ' . $chapter['modifDate']->format('d/m/Y à H\hi')),
         '</td><td><a href="/chapter-' . $chapter['id'] . '"><i class="fas fa-book-open"></i></a><a href="chapter-update-', $chapter['id'], '"><i class="fas fa-pen"></i></a> <a href="chapter-delete-',
@@ -37,7 +37,7 @@ foreach ($listCommentsReported as $comment) {
 
         $comment->setContent($begin);
     }
-    echo '<tr><td>', $comment['author'], '</td><td>le ', $comment['date']->format('d/m/Y à H\hi'), '</td><td>', $comment['content'], '</td><td>', $comment['reportingDate']->format('d/m/Y à H\hi'), '</td><td>
+    echo '<tr><td>', htmlspecialchars($comment['author']), '</td><td>le ', $comment['date']->format('d/m/Y à H\hi'), '</td><td>', nl2br(htmlspecialchars($comment['content'])), '</td><td>', $comment['reportingDate']->format('d/m/Y à H\hi'), '</td><td>
         <a href="comment-update-', $comment['id'], '-from-chapter-', $comment['chapter'], '"><i class="fas fa-pen"></i></a> <a href="comment-delete-',
     $comment['id'], '"><i class="far fa-trash-alt"></i></a><a href="comment-unreport-',
     $comment['id'], '"><i class="fas fa-check"></i></a></td></tr>', "\n";
