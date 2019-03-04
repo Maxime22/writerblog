@@ -7,8 +7,4 @@
   </p>
 </form>
 
-<script>
-  tinymce.init({
-    selector: '#mytextarea'
-  });
-</script>
+<script src="/js/tinyMCE"></script>
