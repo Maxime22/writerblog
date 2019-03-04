@@ -15,7 +15,7 @@ class Page extends ApplicationComponent
         $this->vars[$var] = $value;
     }
 
-    public function getGeneratedPage()
+    public function getGeneratedPage($appName=null)
     {
         if (!file_exists($this->contentFile)) {
             throw new \RuntimeException('La vue spécifiée n\'existe pas');
@@ -30,7 +30,9 @@ class Page extends ApplicationComponent
         $content = ob_get_clean();
 
         ob_start();
-        require __DIR__ . '/../../App/' . $this->app->name() . '/Templates/layout.php';
+        // if we sent a specific application name, we display the layout linked to it, otherwise we display the layout linked to the app in execution
+        $appName !== null ? require __DIR__ . '/../../App/' . $appName . '/Templates/layout.php' : require __DIR__ . '/../../App/' . $this->app->name() . '/Templates/layout.php';
+        
         return ob_get_clean();
     }
 

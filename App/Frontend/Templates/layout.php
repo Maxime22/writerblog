@@ -46,6 +46,9 @@
                         <li class="nav-item"><a class="nav-link" href="/chapters">Chapitres</a></li>
                         <?php if ($user->isAuthenticated()) {?>
                         <li class="nav-item"><a class="nav-link" href="/admin/">Espace Admin</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/admin/deconnexion">Déconnexion</a></li>
+                        <?php } else {?>
+                            <li class="nav-item"><a class="nav-link" href="/admin/">Connexion</a></li>
                         <?php }?>
                     </ul>
                 </div>
@@ -54,6 +57,7 @@
     </header>
 
     <section id="sectionContentFront" class="container-fluid">
+    <?php if ($user->hasFlash()) {echo '<p style="text-align: center;">', $user->getFlash(), '</p>';}?>
         <?=$content?>
     </section>
 
@@ -74,7 +78,7 @@
                         </div>
                         <div class="line2"></div>
                         <?php if ($user->isAuthenticated()) {?>
-                            <a href="#">Déconnexion</a>
+                            <a href="/admin/deconnexion">Déconnexion</a>
                         <?php } else {?>
                             <a href="/admin/">Connexion</a>
                         <?php }?>

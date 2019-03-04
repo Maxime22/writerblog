@@ -118,8 +118,8 @@ class ChapterController extends BackController
         $this->managers->getManagerOf('Comments')->delete($request->getData('id'));
 
         $this->app->user()->setFlash('Le commentaire a bien été supprimé !');
-
-        $this->app->httpResponse()->redirect('.');
+        
+        $_SERVER['HTTP_REFERER'] !== null ? $this->app->httpResponse()->redirect($_SERVER['HTTP_REFERER']) : $this->app->httpResponse()->redirect('.');
     }
 
 }
