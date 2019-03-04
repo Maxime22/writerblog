@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css" >
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+    <!-- TinyMCE -->
+    <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
 </head>
 
   <body>
@@ -71,7 +73,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
-    <!-- TinyMCE -->
-    <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
   </body>
 </html>
