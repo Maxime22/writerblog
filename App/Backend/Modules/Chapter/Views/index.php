@@ -39,7 +39,8 @@ foreach ($listCommentsReported as $comment) {
     }
     echo '<tr><td>', $comment['author'], '</td><td>le ', $comment['date']->format('d/m/Y à H\hi'), '</td><td>', $comment['content'], '</td><td>', $comment['reportingDate']->format('d/m/Y à H\hi'), '</td><td>
         <a href="comment-update-', $comment['id'], '-from-chapter-', $comment['chapter'], '"><i class="fas fa-pen"></i></a> <a href="comment-delete-',
-    $comment['id'], '"><i class="far fa-trash-alt"></i></a></td></tr>', "\n";
+    $comment['id'], '"><i class="far fa-trash-alt"></i></a><a href="comment-unreport-',
+    $comment['id'], '"><i class="fas fa-check"></i></a></td></tr>', "\n";
 }
     ?>
 </table>
