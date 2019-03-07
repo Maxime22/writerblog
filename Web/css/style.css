@@ -245,8 +245,10 @@ div.tox.tox-tinymce{
 /* MEDIA QUERIES */
 
 @media all and (max-width: 1200px) {
+    /* CHAPTER */
     #contentDiv{
         display: block;
+        margin-top:140px;
     }
     .containerBook{
         display: none;

@@ -1,6 +1,3 @@
-
-
-
 let flipbook = document.getElementById('flipbook');
 let contentDiv = document.getElementById('contentDiv');
 let firstPage = document.getElementById('firstPage');
@@ -65,7 +62,7 @@ for (let index = 0; index < lengthContent; index++) { // on parcourt chaque cara
 
     if (!weEnteredInABalise && contentDivHtml[index] !== '>' && !regexSpace.test(contentDivHtml[index])) { // here there were an issue because we took the > when weEnteredInABalise was false
         textToAddToSvg = textToAddToSvg + contentDivHtml[index]
-        cmptString++;
+        cmptString++; // we can't be in the middle of a balise because we don't count them
     }
 
     if (regexSpace.test(contentDivHtml[index]) && !weEnteredInABalise) {
@@ -75,7 +72,7 @@ for (let index = 0; index < lengthContent; index++) { // on parcourt chaque cara
     }
 
     // Faudrait que je compte chaque espace et que je splice
-    if (cmptString > 1520) { // here we cut the text, it is where start the problems ^^
+    if (cmptString > 1520) { // we can't be in the middle of a balise because we don't count them
 
         for (let index = 0; index < svgTextAndBalises.length; index++) { // REVOIR CA ET AUSSI LE RESTE (balise html, coupe etc...)
             pageWhereToAddContent.innerHTML = pageWhereToAddContent.innerHTML + svgTextAndBalises[index]
