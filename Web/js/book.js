@@ -16,10 +16,19 @@ weAreOnTheFirstPage = true;
 let contentDivHtml = contentDiv.innerHTML
 let lengthContent = contentDiv.innerHTML.length
 let regexSpace = new RegExp(/^\s+$/)
+let needToAddSvgBaliseInNewSvgTextAndBalise = false
 
 for (let index = 0; index < lengthContent; index++) { // on parcourt chaque caractère de ce qui est écrit dans content
-
     singleBalise.includes('script') ? singleBalise = "" : ""; // being careful with the JS
+
+    if (needToAddSvgBaliseInNewSvgTextAndBalise) { // for the new pages (starting from the 2nd), we put all the balise who were still opened in the start of our new table svgTextAndBalises
+        needToAddSvgBaliseInNewSvgTextAndBalise = false
+        for (let index = 0; index < svgBalise.length; index++) {
+            svgTextAndBalises[index] = svgBalise[index];
+
+        }
+        svgBalise.length = 0
+    }
 
     if (weEnteredInABalise) {
         singleBalise = singleBalise + contentDivHtml[index]
@@ -35,9 +44,9 @@ for (let index = 0; index < lengthContent; index++) { // on parcourt chaque cara
         weEnteredInABalise = false;
         singleBalise = ""
 
-        for (let index = 0; index < 18; index++) {
+        for (let index = 0; index < 82; index++) {
             cmptString = cmptString + 1 // chercher le nombre de caractères pour un br
-            if (cmptString < 1520) {
+            if (cmptString < 2100) {
                 textToAddToSvg = textToAddToSvg + ' ';
             }
         }
@@ -72,21 +81,22 @@ for (let index = 0; index < lengthContent; index++) { // on parcourt chaque cara
     }
 
     // Faudrait que je compte chaque espace et que je splice
-    if (cmptString > 1520) { // we can't be in the middle of a balise because we don't count them
-
-        for (let index = 0; index < svgTextAndBalises.length; index++) { // REVOIR CA ET AUSSI LE RESTE (balise html, coupe etc...)
-            pageWhereToAddContent.innerHTML = pageWhereToAddContent.innerHTML + svgTextAndBalises[index]
+    if (cmptString > 2100) { // we can't be in the middle of a balise because we don't count them
+        let stringAllText = '';
+        for (let index = 0; index < svgTextAndBalises.length; index++) {
+            stringAllText = stringAllText + svgTextAndBalises[index]
         }
-        if (svgBalise) { // si certaines balises ne sont pas fermées, les rajouter à la fin en modifiant svgbalise par des balises fermantes
+        let allBaliseLeft = ''
+        for (let index = 0; index < svgBalise.length; index++) {
+            allBaliseLeft = stringAllText + svgBalise[index]
+        }
+
+        /* if (svgBalise) { // si certaines balises ne sont pas fermées, les rajouter à la fin en modifiant svgbalise par des balises fermantes ? Peut être que innerHTML ferme les balises
             for (let index = 0; index < svgBalise.length; index++) {
                 //pageWhereToAddContent.innerHTML = pageWhereToAddContent.innerHTML + svgBaliseModifiedWithEnd[index];
             }
-        }
-
-        // A RAJOUTER
-        // on rajoute les balises fermantes manquantes à la fin puis on crée une autre page en dessous avec au départ les balises encore en svg
-        // ne pas oublier de gérer les mots coupés en 2 aussi et les balises coupées en 2
-        // gérer le html et ce que j'ai écrit dans le portable...
+        } */
+        pageWhereToAddContent.innerHTML = stringAllText // inner HTML semble fermer les balises ouvertes
 
         let newPage = document.createElement('div')
         newPage.classList.add('page')
@@ -98,31 +108,18 @@ for (let index = 0; index < lengthContent; index++) { // on parcourt chaque cara
 
         pageWhereToAddContent.innerHTML = ""
         cmptString = 0
-        // console.log(svgTextAndBalises)
         svgTextAndBalises.length = 0
+        needToAddSvgBaliseInNewSvgTextAndBalise = true // allow to keep the balises whhich haven't been closed and put them in the start of the new page (see the beginning of the function)
     }
 
     weHadABR = false
 
 }
 
-if (cmptString < 1520) { // last page
-    for (let index = 0; index < svgTextAndBalises.length; index++) { // REVOIR CA ET AUSSI LE RESTE (balise html, coupe etc...)
-        pageWhereToAddContent.innerHTML = pageWhereToAddContent.innerHTML + svgTextAndBalises[index]
+if (cmptString < 2100) { // last page
+    let stringAllText = '';
+    for (let index = 0; index < svgTextAndBalises.length; index++) {
+        stringAllText = stringAllText + svgTextAndBalises[index]
     }
-    if (svgBalise) { // si certaines balises ne sont pas fermées, les rajouter à la fin en modifiant svgbalise par des balises fermantes
-        for (let index = 0; index < svgBalise.length; index++) {
-            //pageWhereToAddContent.innerHTML = pageWhereToAddContent.innerHTML + svgBaliseModifiedWithEnd[index];
-        }
-    }
-    /* let newPage = document.createElement('div') // create a last blank page if we want
-    newPage.classList.add('page')
-    let newInsideDiv = document.createElement('div')
-    newInsideDiv.classList.add('insidePage')
-    newPage.appendChild(newInsideDiv)
-    flipbook.appendChild(newPage) */
+    pageWhereToAddContent.innerHTML = stringAllText
 }
-
-/* console.log(svgTextAndBalises) */
-/* console.log(svgBalise) */
-/* contentDiv.innerHTML = ""; */
