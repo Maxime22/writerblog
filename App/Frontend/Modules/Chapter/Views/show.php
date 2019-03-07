@@ -2,8 +2,8 @@
 <!-- <div class="col-12 chapterDiv">
 <p><?/*= nl2br($chapter['content']) */?></p>
 </div> -->
-<div id ="contentDiv"><?= nl2br($chapter['content']) ?></div>
-<div class="col-12 containerBook">
+<div id ="contentDiv" class="col-12 chapterDiv"><p><?= nl2br($chapter['content']) ?></p></div>
+<div id="containerBook" class="col-12 containerBook">
 <div id="flipbook">
 	<div class="hard cover"><?=$chapter['title']?></div>
 	<div id="firstPage" class="page"><div class="insidePage"></div></div>
@@ -12,7 +12,7 @@
 </div>
 
 </div>
-
+<div class="container">
 <?php if ($chapter['addDate'] != $chapter['modifDate']) {?>
 <p style="text-align: right;"><small><em>Modifiée le <?=$chapter['modifDate']->format('d/m/Y à H\hi')?></em></small></p>
 <?php }?>
@@ -46,8 +46,8 @@ foreach ($comments as $comment) {
 ?>
 
 <p><a href="comment-<?=$chapter['id']?>">Ajouter un commentaire</a></p>
-
 <p><a href="/chapters">Revenir aux chapitres</a></p>
+</div>
 
 <script src="/js/book.js"></script>
 <script src="/js/turn.js"></script>
