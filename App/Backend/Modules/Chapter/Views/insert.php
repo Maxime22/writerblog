@@ -7,4 +7,4 @@
   </p>
 </form>
 
-<script src="/js/tinyMCE"></script>
+<script src="/js/tinyMCE.js"></script>

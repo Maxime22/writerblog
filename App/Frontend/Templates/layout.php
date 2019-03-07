@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css" >
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 </head>
 
   <body>
