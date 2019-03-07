@@ -117,6 +117,10 @@ section {
     padding-bottom: 20px;
 }
 
+#contentDiv{
+    display: none;
+}
+
 .insidePage {
     padding: 40px;
 }
