@@ -241,3 +241,14 @@ div.tox.tox-tinymce{
     margin:auto !important;
     width:80% !important;
 }
+
+/* MEDIA QUERIES */
+
+@media all and (max-width: 1200px) {
+    #contentDiv{
+        display: block;
+    }
+    .containerBook{
+        display: none;
+    }
+}

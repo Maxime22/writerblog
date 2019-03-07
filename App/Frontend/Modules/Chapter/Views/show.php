@@ -1,6 +1,6 @@
 <div class="container">
   <div id ="contentDiv" class="col-12 chapterDiv"><p><?=nl2br($chapter['content'])?></p></div>
-    <div id="containerBook" class="col-12 containerBook">
+    <div class="col-12 containerBook">
       <div id="flipbook">
 	      <div class="hard cover"><?=$chapter['title']?></div>
 	      <div id="firstPage" class="page"><div class="insidePage"></div></div>

@@ -1,3 +1,6 @@
+
+
+
 let flipbook = document.getElementById('flipbook');
 let contentDiv = document.getElementById('contentDiv');
 let firstPage = document.getElementById('firstPage');
@@ -125,4 +128,4 @@ if (cmptString < 1520) { // last page
 
 /* console.log(svgTextAndBalises) */
 /* console.log(svgBalise) */
-contentDiv.innerHTML = "";
+/* contentDiv.innerHTML = ""; */
