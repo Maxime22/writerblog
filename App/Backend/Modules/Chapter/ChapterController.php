@@ -13,7 +13,7 @@ class ChapterController extends BackController
 {
     public function executeIndex(HTTPRequest $request)
     {
-        $this->page->addVar('title', 'Espace admin');
+        $this->page->addVar('title', 'Espace Admin');
 
         $manager = $this->managers->getManagerOf('Chapter');
         $managerComment = $this->managers->getManagerOf('Comments');

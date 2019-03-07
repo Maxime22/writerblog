@@ -46,7 +46,7 @@
                         <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link" href="/chapters">Chapitres</a></li>
                         <?php if ($user->isAuthenticated()) {?>
-                        <li class="nav-item"><a class="nav-link" href="/admin/">Espace Admin</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/admin/">Admin</a></li>
                         <li class="nav-item"><a class="nav-link" href="/admin/deconnexion">Déconnexion</a></li>
                         <?php } else {?>
                             <li class="nav-item"><a class="nav-link" href="/admin/">Connexion</a></li>

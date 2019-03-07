@@ -117,7 +117,7 @@ section {
     padding-bottom: 20px;
 }
 
-#contentDiv{
+#contentAndChapter{
     display: none;
 }
 
@@ -246,7 +246,7 @@ div.tox.tox-tinymce{
 
 @media all and (max-width: 1200px) {
     /* CHAPTER */
-    #contentDiv{
+    #contentAndChapter{
         display: block;
         margin-top:140px;
     }
