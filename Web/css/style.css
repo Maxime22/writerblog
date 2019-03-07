@@ -85,7 +85,7 @@ section {
     background-color: black !important;
     color: white;
     font-size: 40px !important;
-    line-height: 600px;
+    line-height: 600px !important;
     font-family: 'Great Vibes', cursive !important;
     text-align: center !important;
 }
@@ -96,8 +96,9 @@ section {
     /* padding: 30px 50px 30px 50px; */
     text-align: justify;
     text-justify: inter-word;
-    font-size:14px;
+    font-size:15px;
     font-family: 'Times New Roman', Times, serif;
+    line-height: 1.2;
 }
 
 #flipbook {
