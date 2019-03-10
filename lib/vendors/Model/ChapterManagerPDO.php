@@ -7,7 +7,7 @@ class ChapterManagerPDO extends ChapterManager
 {
     public function getList($start = -1, $limit = -1)
     {
-        $sql = 'SELECT id, author, title, content, addDate, modifDate FROM chapter ORDER BY id DESC';
+        $sql = 'SELECT id, author, title, content, addDate, modifDate FROM chapter ORDER BY addDate';
 
         if ($start != -1 || $limit != -1) {
             $sql .= ' LIMIT ' . (int) $limit . ' OFFSET ' . (int) $start;

@@ -1,8 +1,7 @@
-<h2>Modifier un commentaire</h2>
+<h2 class="insertCommentTitle">Modifier un commentaire</h2>
 <form action="" method="post">
-  <p>
+<div class="offset-4 col-4 commentFormDiv">
     <?= $form ?>
-    
-    <input type="submit" value="Modifier" />
-  </p>
+    <input class="btn btn-primary" type="submit" value="Modifier" />
+</div>
 </form>

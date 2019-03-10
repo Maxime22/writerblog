@@ -125,15 +125,6 @@ class ChapterController extends BackController
         $_SERVER['HTTP_REFERER'] !== null ? $this->app->httpResponse()->redirect($_SERVER['HTTP_REFERER']) : $this->app->httpResponse()->redirect('.');
     }
 
-    public function executeReportComment(HTTPRequest $request)
-    {
-        $this->managers->getManagerOf('Comments')->report($request->getData('id'));
-
-        $this->app->user()->setFlash('Le commentaire a bien été signalé !');
-        
-        $_SERVER['HTTP_REFERER'] !== null ? $this->app->httpResponse()->redirect($_SERVER['HTTP_REFERER']) : $this->app->httpResponse()->redirect('.');
-    }
-
     public function executeUnreportComment(HTTPRequest $request)
     {
         $this->managers->getManagerOf('Comments')->unreport($request->getData('id'));

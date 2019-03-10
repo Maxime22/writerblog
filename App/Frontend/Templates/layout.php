@@ -28,7 +28,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 </head>
 
-  <body>
+  <body> <!-- oncontextmenu="return false;" -->
     <div>
     <header class="container-fluid">
         <div class="row">
@@ -68,10 +68,10 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div>
-                            <h3>Nous contacter :</h3>
+                            <h3>À propos :</h3>
                         </div>
                         <div class="line2"></div>
-                        <a href="/legalNotices">Mentions Légales</a>
+                        <a href="/about">L'auteur</a>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div>
@@ -108,5 +108,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+    <script>
+        document.onkeydown=alert_keycode
+        function alert_keycode(){if (event.keyCode == 17 || event.keyCode == 18) { console.log("On ne copie pas s'il vous plait !") }}
+    </script>
   </body>
 </html>

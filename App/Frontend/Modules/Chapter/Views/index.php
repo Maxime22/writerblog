@@ -1,6 +1,6 @@
 <div class="row">
 <figure class="figure100">
-  <img id="imgMountain" src="/images/montagne.jpg" alt="Image Montagne" title="Montagne"/>
+  <img id="imgMountain" src="/images/mountain.jpg" alt="Image Montagne" title="Montagne"/>
   <figcaption class="figcaptionMountain">
     <h1>Chapitres<h1>
     </figcaption>
@@ -29,7 +29,7 @@ foreach ($listChapters as $chapter) {
 
       $chapter->setContent($begin);
   }
-  echo '<div class="resumeChapters">',($chapter['content']),' <a href="/chapter-',$chapter['id'],'">Découvrir le chapitre...</a></div>';
+  echo '<div class="resumeChapters">', strip_tags($chapter['content']),' <a href="/chapter-',$chapter['id'],'"><br>Découvrir le chapitre...</a></div>';
   ?>
   
 </div>

@@ -21,14 +21,17 @@ class ChapterController extends BackController
     public function executeShow(HTTPRequest $request)
     {
         $chapter = $this->managers->getManagerOf('Chapter')->getUnique($request->getData('id'));
-
+        
         if (empty($chapter)) {
             $this->app->httpResponse()->redirect404();
         }
 
+        $comments = $this->managers->getManagerOf('Comments')->getListOf($chapter->id());
+
         $this->page->addVar('title', $chapter->title());
         $this->page->addVar('chapter', $chapter);
-        $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListOf($chapter->id()));
+        $this->page->addVar('comments', $comments);
+        
     }
 
     public function executeInsertComment(HTTPRequest $request)
@@ -60,6 +63,15 @@ class ChapterController extends BackController
         $this->page->addVar('comment', $comment);
         $this->page->addVar('form', $form->createView()); // We send the form to the view
         $this->page->addVar('title', 'Ajout d\'un commentaire');
+    }
+
+    public function executeReportComment(HTTPRequest $request)
+    {
+        $this->managers->getManagerOf('Comments')->report($request->getData('id'));
+
+        $this->app->user()->setFlash('Le commentaire a bien été signalé !');
+        
+        $_SERVER['HTTP_REFERER'] !== null ? $this->app->httpResponse()->redirect($_SERVER['HTTP_REFERER']) : $this->app->httpResponse()->redirect('.');
     }
 
 }

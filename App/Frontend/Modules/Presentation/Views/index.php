@@ -11,13 +11,13 @@
 <?php if ($user->hasFlash()) {echo '<p style="text-align: center;">', $user->getFlash(), '</p>';}?>
 <h3>Bienvenue à toi cher lecteur...</h3>
 <p>
-Hoc inmaturo interitu ipse quoque sui pertaesus excessit e vita aetatis nono anno atque vicensimo cum quadriennio imperasset. natus apud Tuscos in Massa Veternensi, patre Constantio Constantini fratre imperatoris, matreque Galla sorore Rufini et Cerealis, quos trabeae consulares nobilitarunt et praefecturae.
-</p>
-<p>
-Denique Antiochensis ordinis vertices sub uno elogio iussit occidi ideo efferatus, quod ei celebrari vilitatem intempestivam urgenti, cum inpenderet inopia, gravius rationabili responderunt; et perissent ad unum ni comes orientis tunc Honoratus fixa constantia restitisset.
-</p>
-<p>
-Cum saepe multa, tum memini domi in hemicyclio sedentem, ut solebat, cum et ego essem una et pauci admodum familiares, in eum sermonem illum incidere qui tum forte multis erat in ore. Meministi enim profecto, Attice, et eo magis, quod P. Sulpicio utebare multum, cum is tribunus plebis capitali odio a Q. Pompeio, qui tum erat consul, dissideret, quocum coniunctissime et amantissime vixerat, quanta esset hominum vel admiratio vel querella.
+Billet simple pour l’Alaska nous entraîne au pays des aurores boréales, des courses de chien de traîneau et des ruées vers l’or. 
+Le soleil ne s’y couche pas pendant quatre-vingt-quatre jours, le sol gelé en profondeur empêche toute agriculture de s’y développer et de 
+nombreux volcans y sont encore en activité. Au cœur de cette terre hostile, de nombreux aventuriers comme Jack London ont tenté de faire fortune et 
+d’embrasser un nouveau mode de vie. Anna-Charlotte Denoyelle, jeune française passionnée par l’Alaska, décide elle aussi de franchir le pas en rejoignant 
+la capitale par avion. Alors qu’elle compte sur ce voyage pour se reconstruire et sauver son couple qui bat de l’aile, son voisin de vol est retrouvé 
+empoisonné et mutilé. Aidée par la police locale et ses nouveaux compagnons d’infortune, « Charlie » devra résoudre cette affaire tout en se préparant 
+à prendre une décision douloureuse au bout du chemin… L’Alaska vous attend !
 </p>
 </div>
 </div>

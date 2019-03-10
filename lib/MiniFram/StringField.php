@@ -15,9 +15,9 @@ class StringField extends Field
         }
 
         if (!empty($this->type)) {
-            $widget .= '<input type='.$this->type.' name="' . $this->name . '"';
+            $widget .= '<input class="form-control" type='.$this->type.' name="' . $this->name . '"';
         } else {
-            $widget .= '<label>' . $this->label . '</label><input type="text" name="' . $this->name . '"';
+            $widget .= '<label class="labelInput" >' . $this->label . '</label><input class="form-control" type="text" name="' . $this->name . '"';
         }
 
         if (!empty($this->value)) {
