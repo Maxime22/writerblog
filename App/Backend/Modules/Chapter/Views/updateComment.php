@@ -1,3 +1,4 @@
+<?php if ($user->hasFlash()) {echo '<div class="alert alert-primary row">', $user->getFlash(), '</div>';}?>
 <h2 class="insertCommentTitle">Modifier un commentaire</h2>
 <form action="" method="post">
 <div class="offset-4 col-4 commentFormDiv">

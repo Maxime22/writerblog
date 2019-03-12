@@ -6,7 +6,7 @@
     </figcaption>
 </figure>
 </div>
-
+<?php if ($user->hasFlash()) {echo '<div class="alert alert-primary row">', $user->getFlash(), '</div>';}?>
 <div class="container containerAdmin">
 <h2 class="titleAdminMainPage firstTitleAdminMainPage">Gestion des chapitres</h2>
 <?php if (!empty($listChapters)) {

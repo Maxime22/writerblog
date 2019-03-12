@@ -1,6 +1,7 @@
+<?php if ($user->hasFlash()) {echo '<div class="alert alert-primary row">', $user->getFlash(), '</div>';}?>
 <div class="container">
   <div id="contentAndChapter" class="col-12">
-    <h2><?=$chapter['title']?></h2>
+    <h2><?=htmlspecialchars($chapter['title'])?></h2>
     <div id="contentDiv" class="chapterDiv">
     <p><?=$chapter['content']?></p>
     </div>
@@ -12,7 +13,6 @@
     </div>
     <div class="dateAuthorChapter"><p>Par <em><?=$chapter['author']?></em>, le <?=$chapter['addDate']->format('d/m/Y à H\hi')?></p></div>
   </div>
-
 </div>
 
 <div class="container">
@@ -26,30 +26,45 @@ if (empty($comments)) {
   <p>Aucun commentaire n'a encore été posté. Soyez le premier à en laisser un !</p>
   <?php
 }
+?>
+<h2 class="commentsTitleDisplay">Les commentaires</h2>
 
+<div class="row">
+<div class="col-12">
+<table class="tableComments table table-striped">
+  <tr><th>Auteur</th><th>Date d'ajout</th><th>Contenu</th>
+  <?php if ($user->isAuthenticated()) {?>
+  <th>Action</th>
+  <?php }?>
+  <th>Signalement</th></tr>
+<?php
 foreach ($comments as $comment) {
+    echo '<tr><td>', htmlspecialchars($comment['author']), '</td>
+        <td>le ', $comment['date']->format('d/m/Y à H\hi'), '</td>
+        <td>', nl2br(htmlspecialchars($comment['content'])), '</td>';
     ?>
-    <fieldset>
-      <?php if ($comment->reporting() == 0 || $comment->reporting() == null) {?> -
-        <a href="comment-report-<?=$comment['id']?>">Signaler</a>
+        <?php if ($user->isAuthenticated()) {?>
+          <td>
+        <a href="admin/comment-update-<?=$comment['id']?>-from-chapter-<?=$comment['chapter']?>"><i class="fas fa-pen"></i></a> |
+        <a href="admin/comment-delete-<?=$comment['id']?>" onclick="return(confirm('Êtes-vous sûr de vouloir supprimer cette entrée ?'));"><i class="far fa-trash-alt"></i></a>
+        </td>
+        <?php }?>
+      <td>
+      <?php if ($comment->reporting() == 0 || $comment->reporting() == null) {?>
+        <a href="comment-report-<?=$comment['id']?>"><i class="far fa-flag"></i></a>
       <?php } else {?>
-      <span>Ce commentaire a été signalé</span>
+      <span>Commentaire déjà signalé</span>
       <?php }?>
-      <?php if ($user->isAuthenticated()) {?>
-        <a href="admin/comment-update-<?=$comment['id']?>-from-chapter-<?=$comment['chapter']?>">Modifier</a> |
-        <a href="admin/comment-delete-<?=$comment['id']?>">Supprimer</a>
-      <?php }?>
-      <legend>
-        Posté par <strong><?=htmlspecialchars($comment['author'])?></strong> le <?=$comment['date']->format('d/m/Y à H\hi')?>
-      </legend>
-      <p><?=nl2br(htmlspecialchars($comment['content']))?></p>
-    </fieldset>
-  <?php
+      </td></tr>
+<?php
 }
 ?>
+</table>
+</div>
+</div>
 
-  <p><a href="comment-<?=$chapter['id']?>">Ajouter un commentaire</a></p>
-  <p><a href="/chapters">Revenir aux chapitres</a></p>
+<p class="addCommentToChapter"><a href="comment-<?=$chapter['id']?>"><strong>Ajouter un commentaire</strong></a></p>
+<p><a href="/chapters">Revenir aux chapitres</a></p>
 </div>
 
 <script src="/js/book.js"></script>

@@ -108,7 +108,8 @@ class ChapterController extends BackController
 
         if ($formHandler->process()) // check POST, isValid and save() the entity
         {
-            $this->app->user()->setFlash('Le commentaire a bien été modifié');
+            $this->managers->getManagerOf('Comments')->unreport($request->getData('id')); // we unreport when we modify it
+            $this->app->user()->setFlash("Le commentaire a bien été modifié, il n'est plus signalé");
             $this->app->httpResponse()->redirect('/chapter-'.$request->getData('chapter'));
             
         }

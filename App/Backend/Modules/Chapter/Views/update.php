@@ -6,6 +6,7 @@
     </figcaption>
 </figure>
 </div>
+<?php if ($user->hasFlash()) {echo '<div class="alert alert-primary row">', $user->getFlash(), '</div>';}?>
 <form action="" method="post">
 <div class="offset-2 col-8 commentFormDiv">
     <?=$form?>

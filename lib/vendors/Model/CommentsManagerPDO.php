@@ -24,7 +24,7 @@ class CommentsManagerPDO extends CommentsManager
             throw new \InvalidArgumentException('L\'identifiant du chapitre passé doit être un nombre entier valide');
         }
 
-        $q = $this->dao->prepare('SELECT id, chapter, author, content, date, reporting, reportingDate FROM comments WHERE chapter = :chapter');
+        $q = $this->dao->prepare('SELECT id, chapter, author, content, date, reporting, reportingDate FROM comments WHERE chapter = :chapter ORDER BY date DESC');
         $q->bindValue(':chapter', $chapter, \PDO::PARAM_INT);
         $q->execute();
 

@@ -45,7 +45,6 @@ class ConnexionController extends BackController
 
         if ($this->app->user()->isAuthenticated() != false) {
             $this->app->user()->setAuthenticated(false);
-            $this->app->user()->setFlash('Vous avez été déconnecté de l\'espace utilisateur');
             unset($_SESSION['login']);
             unset($_SESSION['id']);
             $this->app->httpResponse()->redirect('/');

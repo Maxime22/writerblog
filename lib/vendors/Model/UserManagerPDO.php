@@ -13,8 +13,8 @@ class UserManagerPDO extends UserManager
         $request->bindValue(':password', password_hash('', PASSWORD_DEFAULT));
 
         $request->execute();
-    } */
-
+    }
+ */
     public function getUser($postUser)
     {
         $sql ='SELECT id, login, password FROM users WHERE login = :login';
