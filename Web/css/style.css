@@ -9,13 +9,33 @@ label {
     font-size: 20px;
 }
 
-.alert{
+.alert {
     text-align: center !important;
     display: block;
 }
 
-td, th, tr{
+td, th, tr {
     vertical-align: middle !important;
+}
+
+.loader {
+    position: fixed;
+    z-index: 9999;
+    background: url('/images/loading.gif') 50% 50% no-repeat;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.containLoader {
+    position: fixed;
+    z-index: 9999;
+    background-color:black;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
 }
 
 /* HEADER */
@@ -173,8 +193,9 @@ section {
 
 .cover {
     /*  box-shadow: inset 0 0 15px #666 !important; */
-    /* background-image: url("/images/road.jpg"); WORKS WELL */
-    background-color: black !important;
+    background-image: url("/images/book.jpg");
+    background-size: 500px 600px;
+    /* background-color: black !important; */
     color: white;
     font-size: 50px !important;
     line-height: 600px !important;
@@ -201,7 +222,7 @@ section {
 .dateAuthorChapter {
     position: absolute;
     top: 300px;
-    left: 50px;
+    left: 100px;
     z-index: -1;
 }
 
@@ -218,7 +239,7 @@ section {
     padding: 40px;
 }
 
-.commentsTitleDisplay{
+.commentsTitleDisplay {
     font-size: 50px;
     font-family: 'Great Vibes', cursive;
 }
@@ -228,8 +249,8 @@ section {
     background-color: lavenderblush
 }
 
-.addCommentToChapter{
-    margin-top:20px;
+.addCommentToChapter {
+    margin-top: 20px;
 }
 
 /* INSERTS */
@@ -318,7 +339,7 @@ section {
     opacity: 0;
 }
 
-.arrowDown a{
+.arrowDown a {
     color: white;
 }
 
@@ -343,13 +364,13 @@ section {
     }
 }
 
-.containerIntroWelcome{
-    margin-top:70px;
-    margin-bottom:70px;
+.containerIntroWelcome {
+    margin-top: 70px;
+    margin-bottom: 70px;
 }
 
-.welcomeReader{
-    font-size:50px !important;
+.welcomeReader {
+    font-size: 50px !important;
     padding-top: 0 !important;
 }
 

@@ -62,11 +62,20 @@ foreach ($comments as $comment) {
 </table>
 </div>
 </div>
+<div class="containLoader"></div>
+<div class="loader"></div>
 
 <p class="addCommentToChapter"><a href="comment-<?=$chapter['id']?>"><strong>Ajouter un commentaire</strong></a></p>
 <p><a href="/chapters">Revenir aux chapitres</a></p>
 </div>
 
+<script type="text/javascript">
+$(window).on('load', function() {
+
+  $(".containLoader").fadeOut(4000);
+  $(".loader").fadeOut(500);
+})
+</script>
 <script src="/js/book.js"></script>
 <script src="/js/turn.js"></script>
 <script src="/js/bookLogic.js"></script>

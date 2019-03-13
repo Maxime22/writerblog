@@ -89,7 +89,7 @@ for (let index = 0; index < lengthContent; index++) { // on parcourt chaque cara
     }
 
     // Faudrait que je compte chaque espace et que je splice
-    if (cmptString > 2000) { // we can't be in the middle of a Tag because we don't count them
+    if (cmptString > 1800) { // we can't be in the middle of a Tag because we don't count them
         let stringAllText = '';
         for (let index = 0; index < svgTextAndTags.length; index++) {
             stringAllText = stringAllText + svgTextAndTags[index]
@@ -115,7 +115,7 @@ for (let index = 0; index < lengthContent; index++) { // on parcourt chaque cara
 
 }
 
-if (cmptString < 2000) { // last page
+if (cmptString < 1800) { // last page
     let stringAllText = '';
     for (let index = 0; index < svgTextAndTags.length; index++) {
         stringAllText = stringAllText + svgTextAndTags[index]
