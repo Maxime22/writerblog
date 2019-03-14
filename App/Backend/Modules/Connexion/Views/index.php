@@ -8,7 +8,7 @@
 </div>
 <?php if ($user->hasFlash()) {echo '<div class="alert alert-primary row">', $user->getFlash(), '</div>';}?>
 <div class="row">
-<div class="offset-4 col-4 connexionContainer">
+<div class="offset-lg-4 col-lg-4 offset-sm-2 col-sm-8 connexionContainer">
 <form action="" method="post">
 <div class="form-group">
   <label for="inputPseudo" class="labelConnexion">Pseudo</label>

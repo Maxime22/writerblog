@@ -31,11 +31,9 @@
   <body> <!-- oncontextmenu="return false;" -->
     <div>
     <header class="container-fluid">
-        <div class="row">
             <nav class="navbar fixed-top navbar-expand-sm">
                 <a class="navbar-brand" href="/"><img src="/images/logoJF.png" alt="Logo JF"
                         id="imgLogo" /></a>
-
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
                     aria-label="Toggle navigation"><span class="barsMenu"><i
@@ -47,14 +45,13 @@
                         <li class="nav-item"><a class="nav-link" href="/chapters">Chapitres</a></li>
                         <?php if ($user->isAuthenticated()) {?>
                         <li class="nav-item"><a class="nav-link" href="/admin/">Admin</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/admin/deconnexion">Déconnexion</a></li>
+                        <li class="nav-item lastNavItem"><a class="nav-link" href="/admin/deconnexion">Déconnexion</a></li>
                         <?php } else {?>
-                            <li class="nav-item"><a class="nav-link" href="/admin/">Connexion</a></li>
+                            <li class="nav-item lastNavItem"><a class="nav-link" href="/admin/">Connexion</a></li>
                         <?php }?>
                     </ul>
                 </div>
             </nav>
-        </div>
     </header>
 
     <section id="sectionContentFront" class="container-fluid">
@@ -65,14 +62,14 @@
     <footer class="container-fluid">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6 divFooter">
                         <div>
                             <h3>À propos :</h3>
                         </div>
                         <div class="line2"></div>
                         <a href="/about">L'auteur</a>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6 divFooter">
                         <div>
                             <h3>Administration :</h3>
                         </div>
@@ -83,13 +80,13 @@
                             <a href="/admin/">Connexion</a>
                         <?php }?>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6 divFooter">
                         <div>
                             <h3>Retour à l'accueil :</h3>
                         </div>
                         <div class="line2"></div>
                         <a href="/">
-                            <img src="/images/logoJF.png" width="100" height="100" alt="">
+                            <img src="/images/logoJF.png" class="logoFooter" alt="logoJF">
                         </a>
                     </div>
                 </div>

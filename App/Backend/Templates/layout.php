@@ -32,11 +32,9 @@
   <body>
     <div>
     <header class="container-fluid">
-        <div class="row">
             <nav class="navbar fixed-top navbar-expand-sm">
                 <a class="navbar-brand" href="/"><img src="/images/logoJF.png" alt="Logo JF"
                         id="imgLogo" /></a>
-
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
                     aria-label="Toggle navigation"><span class="barsMenu"><i
@@ -53,7 +51,6 @@
                     </ul>
                 </div>
             </nav>
-        </div>
     </header>
 
     <section id="sectionContentFront" class="container-fluid">

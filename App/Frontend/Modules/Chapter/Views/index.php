@@ -15,14 +15,14 @@
   $cpt++;
   ?>
   <div class="row containChapter">
-    <div class="col-2">
+    <div class="col-lg-2 col-xs-12 miniBookChapter">
       <a class="linkLittleBookChapters" href="/chapter-<?php echo $chapter['id'] ?>">
         <div class="littleBookChapters">
           <h2><?php echo 'Chapitre n°',$cpt,'<br><br>',htmlspecialchars($chapter['title']) ?></h2>
         </div>
       </a>
     </div>
-    <div class="col-10">
+    <div class="col-lg-10 col-xs-12">
       <?php
         if (strlen($chapter->content()) > 1000) // if chapter->content() has too much letters, we modify it with substr()
         {
@@ -38,7 +38,7 @@
   <?php
   }
   } else {?>
-    <span>Aucun chapitre n'a été publié pour le moment... soyez patient, il n'y en a plus pour longtemps !</span>
+    <p class="noChapters">Aucun chapitre n'a été publié pour le moment... soyez patient, il n'y en a plus pour longtemps !</p>
   <?php
   }
   ?>

@@ -73,3 +73,11 @@ foreach ($listCommentsReported as $comment) {
 }?>
 
 </div>
+
+<div class="notAllowedToAdminInSmallScreen">
+  <div class="container">
+    <div class="screenTooSmall">Votre écran est trop petit pour administrer, veuillez-vous connecter sur un ordinateur.</div>
+    <div><a href="/admin/deconnexion">Déconnexion</a></div>
+    <div><a href="/admin/deconnexion"><img src="/images/logoJF.png" class="logoFooter" alt="logoJF"></a></div>
+  </div>
+</div>

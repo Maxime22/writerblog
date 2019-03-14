@@ -1,5 +1,5 @@
 <?php if ($user->hasFlash()) {echo '<div class="alert alert-primary row">', $user->getFlash(), '</div>';}?>
-<div class="container">
+<div class="container chapterDivAll">
   <div id="contentAndChapter" class="col-12">
     <h2><?=htmlspecialchars($chapter['title'])?></h2>
     <div id="contentDiv" class="chapterDiv">
@@ -15,21 +15,14 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container containerComments">
   <?php if ($chapter['addDate'] != $chapter['modifDate']) {?>
   <p style="text-align: right;"><small><em>Modifiée le <?=$chapter['modifDate']->format('d/m/Y à H\hi')?></em></small></p>
   <?php }?>
 
-  <?php
-if (empty($comments)) {
-    ?>
-  <p>Aucun commentaire n'a encore été posté. Soyez le premier à en laisser un !</p>
-  <?php
-}
-?>
+<?php if (!empty($comments)){ ?>
 <h2 class="commentsTitleDisplay">Les commentaires</h2>
-
-<div class="row">
+<div class="row ">
 <div class="col-12">
 <table class="tableComments table table-striped">
   <tr><th>Auteur</th><th>Date d'ajout</th><th>Contenu</th>
@@ -45,7 +38,7 @@ foreach ($comments as $comment) {
     ?>
         <?php if ($user->isAuthenticated()) {?>
           <td>
-        <a href="admin/comment-update-<?=$comment['id']?>-from-chapter-<?=$comment['chapter']?>"><i class="fas fa-pen"></i></a> |
+        <a href="admin/comment-update-<?=$comment['id']?>-from-chapter-<?=$comment['chapter']?>"><i class="fas fa-pen"></i></a>
         <a href="admin/comment-delete-<?=$comment['id']?>" onclick="return(confirm('Êtes-vous sûr de vouloir supprimer cette entrée ?'));"><i class="far fa-trash-alt"></i></a>
         </td>
         <?php }?>
@@ -62,10 +55,19 @@ foreach ($comments as $comment) {
 </table>
 </div>
 </div>
+<?php
+} else {
+    ?>
+  <p>Aucun commentaire n'a encore été posté. Soyez le premier à en laisser un !</p>
+  <?php
+}
+?>
+<p class="addCommentToChapter"><a href="comment-<?=$chapter['id']?>"><strong>Ajouter un commentaire</strong></a></p>
+</div>
+
+<div class=container>
 <div class="containLoader"></div>
 <div class="loader"></div>
-
-<p class="addCommentToChapter"><a href="comment-<?=$chapter['id']?>"><strong>Ajouter un commentaire</strong></a></p>
 <p><a href="/chapters">Revenir aux chapitres</a></p>
 </div>
 
