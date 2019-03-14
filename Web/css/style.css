@@ -585,11 +585,21 @@ div.tox.tox-tinymce {
         display: none;
     }
     /* ABOUT */
-.authorAbout {
-    font-size: 40px;
-    margin-top: 120px !important;
-    margin-bottom: 20px;
-}
+    .authorAbout {
+        font-size: 40px;
+        margin-top: 120px !important;
+        margin-bottom: 20px;
+    }
+    /* CONNEXION */
+    .labelConnexion {
+        font-weight: bold;
+        font-size:14px;
+    }
+    .connexionContainer {
+        padding-top:20px;
+        width:80%;
+        margin:auto;
+    }
 }
 
 @media all and (max-width: 576px) {
