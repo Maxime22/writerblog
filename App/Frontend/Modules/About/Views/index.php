@@ -2,12 +2,12 @@
 <div class="container containerIndex">
     <h2 class="authorAbout">Jean Forteroche</h2>
     <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4 col-sm-12">
             <figure>
                 <img id="writerImg" src="/images/writer.jpg" alt="Image JF" title="Jean Forteroche"/>
             </figure>
         </div>
-        <div class="col-8 presentationWriter">
+        <div class="col-lg-8 col-sm-12 presentationWriter">
             <p>
             Jean Forteroche est né à Châtenay-Malabry, en 1976. Il passe son enfance en Normandie, où ses parents lui transmettent très tôt le goût de la lecture, 
             des voyages et de la science-fiction. Encouragé par ses professeurs de français, Forteroche se met à écrire ses premières histoires à l’âge de quinze ans 

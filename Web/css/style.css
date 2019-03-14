@@ -195,9 +195,10 @@ section {
     margin-top: 30px;
 }
 
-.titleChapterBook{
+.titleChapterBook {
+    width: 500px !important;
+    text-align: center !important;
     word-break: break-word;
-    text-align: center;
     height: 600px;
     display: table-cell;
     vertical-align: middle;
@@ -579,11 +580,16 @@ div.tox.tox-tinymce {
     .divFooter {
         margin-bottom: 20px;
     }
-
     /* CHAPTER */
     .containerComments {
         display: none;
     }
+    /* ABOUT */
+.authorAbout {
+    font-size: 40px;
+    margin-top: 120px !important;
+    margin-bottom: 20px;
+}
 }
 
 @media all and (max-width: 576px) {
@@ -668,8 +674,8 @@ div.tox.tox-tinymce {
         height: 60px;
     }
     /* CONNEXION */
-    .connexionContainer{
-        margin-bottom:20px;
+    .connexionContainer {
+        margin-bottom: 20px;
     }
     /* CHAPTER */
     .chapterDivAll {
@@ -720,25 +726,20 @@ div.tox.tox-tinymce {
         margin-bottom: 20px;
     }
     /* ERROR */
-
-#bear {
-    height: 420px;
-}
-
-.title1Bear {
-    font-size: 40px;
-}
-
-.figcaptionBear {
-    top: 80px;
-    left: 0;
-}
-
-.containerTitle2Bear {
-    width: 80%;
-}
-
-.containerTitle2Bear h2 {
-    font-size: 20px;
-}
+    #bear {
+        height: 420px;
+    }
+    .title1Bear {
+        font-size: 40px;
+    }
+    .figcaptionBear {
+        top: 80px;
+        left: 0;
+    }
+    .containerTitle2Bear {
+        width: 80%;
+    }
+    .containerTitle2Bear h2 {
+        font-size: 20px;
+    }
 }
