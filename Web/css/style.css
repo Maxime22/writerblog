@@ -195,6 +195,14 @@ section {
     margin-top: 30px;
 }
 
+.titleChapterBook{
+    word-break: break-word;
+    text-align: center;
+    height: 600px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .cover {
     /*  box-shadow: inset 0 0 15px #666 !important; */
     background-image: url("/images/book.jpg");
@@ -202,7 +210,6 @@ section {
     /* background-color: black !important; */
     color: white;
     font-size: 50px !important;
-    line-height: 600px !important;
     font-family: 'Great Vibes', cursive !important;
     text-align: center !important;
 }
@@ -608,7 +615,6 @@ div.tox.tox-tinymce {
     /* PAGE VIEW FRONT */
     #sectionContentFront {
         margin-top: 75px;
-        margin-bottom: 20px;
     }
     .figcaptionAlaska1 {
         top: 50px;
@@ -661,6 +667,10 @@ div.tox.tox-tinymce {
         width: 60px;
         height: 60px;
     }
+    /* CONNEXION */
+    .connexionContainer{
+        margin-bottom:20px;
+    }
     /* CHAPTER */
     .chapterDivAll {
         margin-top: -50px;
@@ -709,4 +719,26 @@ div.tox.tox-tinymce {
         margin-top: 20px;
         margin-bottom: 20px;
     }
+    /* ERROR */
+
+#bear {
+    height: 420px;
+}
+
+.title1Bear {
+    font-size: 40px;
+}
+
+.figcaptionBear {
+    top: 80px;
+    left: 0;
+}
+
+.containerTitle2Bear {
+    width: 80%;
+}
+
+.containerTitle2Bear h2 {
+    font-size: 20px;
+}
 }

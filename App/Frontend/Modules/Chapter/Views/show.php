@@ -1,6 +1,6 @@
 <?php if ($user->hasFlash()) {echo '<div class="alert alert-primary row">', $user->getFlash(), '</div>';}?>
 <div class="container chapterDivAll">
-  <div id="contentAndChapter" class="col-12">
+  <div id="contentAndChapter" class="col-12"> <!-- not displayed -->
     <h2><?=htmlspecialchars($chapter['title'])?></h2>
     <div id="contentDiv" class="chapterDiv">
     <p><?=$chapter['content']?></p>
@@ -8,7 +8,7 @@
   </div>
   <div class="col-12 containerBook">
     <div id="flipbook">
-	    <div class="hard cover"><?=htmlentities($chapter['title'])?></div>
+	    <div class="hard cover"><div class="titleChapterBook"><?=htmlentities($chapter['title'])?></div></div>
 	    <div id="firstPage" class="page"><div class="insidePage"></div></div>
     </div>
     <div class="dateAuthorChapter"><p>Par <em><?=$chapter['author']?></em>, le <?=$chapter['addDate']->format('d/m/Y à H\hi')?></p></div>
