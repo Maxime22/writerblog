@@ -19,7 +19,7 @@ let needToAddSvgTagInNewSvgTextAndTag = false
 let weHaveAComment = false
 
 
-for (let index = 0; index < lengthContent; index++) { // on parcourt chaque caractère de ce qui est écrit dans content
+for (let index = 0; index < lengthContent; index++) { // we run through the content
     singleTag.includes('<script>') ? singleTag = "" : ""; // being careful with the JS
 
     if (needToAddSvgTagInNewSvgTextAndTag) { // for the new pages (starting from the 2nd), we put all the Tag who were still opened in the start of our new table svgTextAndTags
@@ -41,14 +41,14 @@ for (let index = 0; index < lengthContent; index++) { // on parcourt chaque cara
 
     if (singleTag === '<br>' || singleTag === '</br>' || singleTag === '<p' || singleTag === '</p>') { // sometimes it is a br, sometimes it is a p who have a bottom margin
         for (let index = 0; index < 83; index++) {
-            cmptString = cmptString + 1 // chercher le nombre de caractères pour un br
+            cmptString = cmptString + 1 
         }
     }
 
     if(singleTag === '<br>' || singleTag === '<br />' || singleTag === '<br/>'){
         weHadABR = true
         singleTag = ""
-        weEnteredInATag = false // not sure this line is useful
+        weEnteredInATag = false
     }
 
     if(singleTag === '<!--'){
@@ -88,14 +88,12 @@ for (let index = 0; index < lengthContent; index++) { // on parcourt chaque cara
         cmptString++ // we can't be in the middle of a Tag because we don't count them
     }
 
-    // Faudrait que je compte chaque espace et que je splice
     if (cmptString > 1800) { // we can't be in the middle of a Tag because we don't count them
         let stringAllText = '';
         for (let index = 0; index < svgTextAndTags.length; index++) {
             stringAllText = stringAllText + svgTextAndTags[index]
         }
-        /* if (svgTag) { // si certains Tags ne sont pas fermées, les rajouter à la fin en modifiant svgTag par des Tags fermantes ? Peut être que innerHTML ferme les Tags } */
-        pageWhereToAddContent.innerHTML = stringAllText // inner HTML semble fermer les Tags ouvertes
+        pageWhereToAddContent.innerHTML = stringAllText
 
         let newPage = document.createElement('div')
         newPage.classList.add('page')

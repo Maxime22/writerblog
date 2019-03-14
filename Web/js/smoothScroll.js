@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    // au clic sur un lien
+    // on a a click
     $('a[href^="#"]').on('click', function(evt){
     evt.preventDefault();
     let target = $(this).attr('href');
