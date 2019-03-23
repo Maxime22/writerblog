@@ -2,7 +2,7 @@
   <figure class="figure100">
   <img id="imgGreenLight" src="/images/greenLight.jpg" alt="Lumière verte" title="Lumière verte"/>
   <figcaption class="figcaptionGreenLight">
-    <h1>Administration<h1>
+    <h1>Administration</h1>
     </figcaption>
 </figure>
 </div>

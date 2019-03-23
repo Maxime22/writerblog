@@ -3,8 +3,8 @@
     <figure class="figure100 figureImgAlaska">
       <img id="imgAlaska1" src="/images/alaska1.jpg" alt="Image Aurore Boreale Alaska" title="Aurore Boréale"/>
       <figcaption class="figcaptionAlaska1">
-        <h1>Jean Forteroche<h1>
-        <h2>Billet simple pour l'Alaska<h2>
+        <h1>Jean Forteroche</h1>
+        <h2>Billet simple pour l'Alaska</h2>
         <div class="arrowDown"><a href="#introWelcome"><i class="fas fa-arrow-down"></i></a></div>
       </figcaption>
     </figure>

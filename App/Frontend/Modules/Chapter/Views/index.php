@@ -2,7 +2,7 @@
   <figure class="figure100">
     <img id="imgMountain" src="/images/mountain.jpg" alt="Image Montagne" title="Montagne"/>
     <figcaption class="figcaptionMountain">
-      <h1>Chapitres<h1>
+      <h1>Chapitres</h1>
     </figcaption>
   </figure>
 </div>

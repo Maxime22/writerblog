@@ -2,7 +2,7 @@
   <figure class="figure100">
   <img id="imgMountain" src="/images/mountain.jpg" alt="Image Montagne" title="Montagne"/>
   <figcaption class="figcaptionMountain">
-    <h1>Connexion<h1>
+    <h1>Connexion</h1>
     </figcaption>
 </figure>
 </div>
@@ -16,7 +16,7 @@
   </div>
   <div class="form-group">
   <label for="inputPassword" class="labelConnexion">Mot de passe</label>
-  <input type="password" id="for=inputPassword" name="password" class="form-control" /><br /><br />
+  <input type="password" id="inputPassword" name="password" class="form-control" /><br /><br />
   </div>
   <input type="submit" class="btn btn-primary" value="Connexion" />
 </form>

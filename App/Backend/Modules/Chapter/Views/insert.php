@@ -2,7 +2,7 @@
   <figure class="figure100">
   <img id="imgNight" src="/images/night.jpg" alt="Image Nuit" title="Nuit"/>
   <figcaption class="figcaptionMountain">
-    <h1>Ajout d'un chapitre<h1>
+    <h1>Ajout d'un chapitre</h1>
     </figcaption>
 </figure>
 </div>

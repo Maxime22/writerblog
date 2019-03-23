@@ -28,7 +28,7 @@ class Page extends ApplicationComponent
         ob_start();
         require $this->contentFile;
         $content = ob_get_clean();
-
+        
         ob_start();
         // if we sent a specific application name, we display the layout linked to it, otherwise we display the layout linked to the app in execution
         $appName !== null ? require __DIR__ . '/../../App/' . $appName . '/Templates/layout.php' : require __DIR__ . '/../../App/' . $this->app->name() . '/Templates/layout.php';
